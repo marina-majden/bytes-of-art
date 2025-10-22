@@ -1,13 +1,10 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+import Timeline from "../components/Timeline";
+import { artTimelineData } from "../data/artTimelineData";
 
 export default function Home() {
-  return <Welcome />;
+    return (
+        <div className='min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8'>
+            <Timeline data={artTimelineData} />
+        </div>
+    );
 }
