@@ -28,11 +28,11 @@ export default function TimelineItem({
                 {/* Content card */}
                 <Link
                     to={`/artwork/${item.id}`}
-                    className='w-80 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+                    className='z-90 w-80 bg-white rounded-xl shadow-md overflow-visible hover:shadow-xl  hover:rounded-sm transition-all duration-300'>
                     <img
                         src={item.imageUrl}
                         alt={item.title}
-                        className='w-full h-48 object-cover'
+                        className='w-full h-full object-cover'
                     />
                     <div className='p-4'>
                         <h3 className='text-xl font-bold text-gray-900 mb-2'>

@@ -7,6 +7,7 @@ export interface TimelineItem {
     period: string;
     medium: string;
     location: string;
+    analysis: string;
 }
 
 export interface TimelineData {
