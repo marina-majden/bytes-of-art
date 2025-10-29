@@ -1,16 +1,19 @@
 import type { TimelineData } from "../types/timeline";
 
 export const artTimelineData: TimelineData = {
-    title: "Evolution of Leadership Portraits",
-    description: "From Roman emperors to modern presidents",
+    title: "Portraits, Politics & Propaganda",
+    description:
+        "the art of conveying complex and powerful personalities on painting",
     items: [
         {
             id: "1",
             year: "27 BC",
             title: "Augustus of Prima Porta",
+            artist: "unknown",
             description:
                 "Roman imperial propaganda sculpture showing Augustus as military leader",
-            imageUrl: "https://picsum.photos/id/301/600/400",
+            imageUrl:
+                "https://www.researchgate.net/profile/Tayfun-Hakan/publication/330747316/figure/fig1/AS:733422255353858@1551872900620/Augustus-of-Prima-Porta-Statue-of-Augustus-Caesar-White-marble-Vatican-Museum-1st.png",
             period: "Roman Imperial",
             medium: "Marble Sculpture",
             location: "Vatican Museums",
@@ -19,24 +22,28 @@ export const artTimelineData: TimelineData = {
         },
         {
             id: "2",
-            year: "1503",
-            title: "Mona Lisa",
+            year: "1540",
+            title: "Henrik VII at 49",
+            artist: "Hans Holbein the Younger",
             description:
-                "Leonardo da Vinci's masterpiece showing subtle leadership qualities",
-            imageUrl: "https://picsum.photos/id/302/600/400",
+                "Hans Holbein the Younger masterpiece showing subtle leadership qualities",
+            imageUrl:
+                "https://upload.wikimedia.org/wikipedia/commons/8/81/Enrique_VIII_de_Inglaterra%2C_por_Hans_Holbein_el_Joven.jpg",
             period: "Renaissance",
             medium: "Oil on Poplar",
-            location: "Louvre Museum",
+            location: "Galleria Nazionale, Palazzo Barberini, Rome",
             analysis:
-                "Renaissance portraits shifted toward psychological depth and individual personality. The mysterious smile and direct gaze create intimacy while maintaining authority. This represents a move from divine right to personal charisma as a source of leadership power.",
+                "This powerful and authoritative image, though a form of political propaganda, has become the standard likeness of the king, conveying immense wealth and power through his commanding stance, opulent clothing, and prominent codpiece, despite omitting traditional symbols like a crown. ",
         },
         {
             id: "3",
             year: "1796",
             title: "Napoleon Crossing the Alps",
+            artist: "Jacques-Louis David",
             description:
                 "Jacques-Louis David's dramatic portrayal of Napoleon as a heroic leader",
-            imageUrl: "https://picsum.photos/id/303/600/400",
+            imageUrl:
+                "https://www.reproduction-gallery.com/catalogue/uploads/1662522259_large-image_jacques-louis-david-napoleon-crossing-the-alps-lg.webp",
             period: "Neoclassicism",
             medium: "Oil on Canvas",
             location: "Château de Malmaison",
@@ -46,10 +53,27 @@ export const artTimelineData: TimelineData = {
         {
             id: "4",
             year: "1865",
+            title: "Empress Elizabeth of Austria",
+            artist: "Franz Xaver Winterhalter",
+            description:
+                "One of the most iconic and famous images of Sisi that cemented her public image as a legendary beauty.",
+            imageUrl:
+                "https://fashionhistory.fitnyc.edu/wp-content/uploads/2018/05/Elisabeth_of_Austria_by_Franz_Xaver_Winterhalter.jpg",
+            period: "Romanticism",
+            medium: "Oil on Canvas",
+            location: "Smithsonian National Portrait Gallery",
+            analysis:
+                "The painting is significant both artistically, due to Winterhalter's masterful technique, and historically, as it served as an idealized and influential representation of a 19th-century monarch that helped maintain public interest in the Austrian monarchy. ",
+        },
+        {
+            id: "5",
+            year: "1865",
             title: "Abraham Lincoln Portrait",
+            artist: "George Peter Alexander Healy",
             description:
                 "George Peter Alexander Healy's depiction of Lincoln during the Civil War",
-            imageUrl: "https://picsum.photos/id/304/600/400",
+            imageUrl:
+                "https://upload.wikimedia.org/wikipedia/commons/5/51/George_P.A._Healy_-_Abraham_Lincoln_-_Google_Art_Project.jpg",
             period: "19th Century American Art",
             medium: "Oil on Canvas",
             location: "White House",
@@ -57,30 +81,18 @@ export const artTimelineData: TimelineData = {
                 "19th-century portraits began to reflect democratic ideals and personal virtue. Lincoln is portrayed with a solemn, thoughtful expression, emphasizing his moral resolve and connection to the common people. The simplicity of the composition contrasts with earlier opulent styles, highlighting character over status.",
         },
         {
-            id: "5",
+            id: "6",
             year: "2009",
             title: "Barack Obama Official Portrait",
-            description:
-                "Jasper Johns' modern take on presidential portraiture",
-            imageUrl: "https://picsum.photos/id/305/600/400",
+            artist: "Kehinde Wiley",
+            description: "Very unconventional take on presidential portraiture",
+            imageUrl:
+                "https://media.newyorker.com/photos/5a82035156b75c08a3e5b5b4/master/w_1600%2Cc_limit/Cunningham-Obama-Kehinde-Wiley.jpg",
             period: "Contemporary",
             medium: "Oil on Linen",
             location: "Smithsonian National Portrait Gallery",
             analysis:
                 "Contemporary portraits often blend realism with abstract elements to convey complexity. Obama's portrait uses vibrant colors and layered brushstrokes, symbolizing diversity and change. The informal pose and direct gaze reflect modern leadership values of approachability and transparency.",
-        },
-        {
-            id: "6",
-            year: "2021",
-            title: "Kamala Harris Portrait",
-            description:
-                "Amy Sherald's vibrant portrait of the first female Vice President of the USA",
-            imageUrl: "https://picsum.photos/id/306/600/400",
-            period: "Contemporary",
-            medium: "Oil on Canvas",
-            location: "Smithsonian National Portrait Gallery",
-            analysis:
-                "Sherald's use of bold colors and stylized forms challenges traditional portrait norms, reflecting Harris's groundbreaking role. The confident pose and direct gaze convey strength and determination, while the modern aesthetic speaks to evolving perceptions of leadership in a diverse society.",
         },
     ],
 };
