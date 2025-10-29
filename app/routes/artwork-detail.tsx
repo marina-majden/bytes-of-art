@@ -33,29 +33,29 @@ export default function ArtworkDetail() {
                 <div className='p-8'>
                     <div className='flex justify-between items-start mb-4'>
                         <div>
-                            <h1 className='text-3xl font-bold text-gray-900'>
+                            <h1 className='subtitle'>
                                 {artwork.title}
                             </h1>
-                            <p className='text-xl text-blue-600 font-semibold mt-2'>
+                            <p className='text-xl text-blue-600 font-semibold mt-2 tags'>
                                 {artwork.year}
                             </p>
                         </div>
-                        <span className='bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm'>
+                        <span className='bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm tags'>
                             {artwork.period}
                         </span>
                     </div>
 
-                    <p className='text-gray-700 text-lg mb-6'>
+                    <p className='paragraph mb-6'>
                         {artwork.description}
                     </p>
 
-                    <div className='grid grid-cols-2 gap-4 text-sm text-gray-600'>
+                    <div className='grid grid-cols-2 gap-4 text-sm text-gray-600 tags'>
                         <div>
                             <span className='font-semibold'>Medium:</span>{" "}
                             {artwork.medium}
                         </div>
                         <div>
-                            <span className='font-semibold'>Location:</span>{" "}
+                            <span className='font-semibold tags'>Location:</span>{" "}
                             {artwork.location}
                         </div>
                     </div>
