@@ -14,21 +14,20 @@ export default function TimelineAnalysis({
         activeItem
     );
     const [isVisible, setIsVisible] = useState(true);
+    const isPlaceholder = !displayItem;
 
     // Smooth transition between items
     useEffect(() => {
-        if (activeItem !== displayItem) {
-            setIsVisible(false);
-            const timer = setTimeout(() => {
-                setDisplayItem(activeItem);
-                setIsVisible(true);
-            }, 200);
-            return () => clearTimeout(timer);
-        }
-    }, [activeItem, displayItem]);
+        setIsVisible(false);
+        const timer = setTimeout(() => {
+            setDisplayItem(activeItem);
+            setIsVisible(true);
+        }, 200);
+        return () => clearTimeout(timer);
+    }, [activeItem]);
 
     return (
-        <div className='h-25vh z-30 max-w-6xl mx-auto px-6 py-6'>
+        <div className='w-full h-full z-50 max-w-6xl mx-auto px-4 py-2'>
             <div
                 className={`flex items-start space-x-6 transition-all duration-300 ${
                     isVisible
@@ -39,10 +38,10 @@ export default function TimelineAnalysis({
                 {displayItem && (
                     <div className='flex-shrink-0'>
                         <div className='flex items-center space-x-3 mb-2'>
-                            <span className='bg-blue-500/90 text-white px-2 py-1 rounded text-sm font-medium backdrop-blur-sm'>
+                            <span className='tagsbg-cyan-600/90 text-zinc-200 px-2 py-1 rounded text-sm font-medium backdrop-blur-sm'>
                                 {displayItem.year}
                             </span>
-                            <span className='text-sm text-teal-200/90'>
+                            <span className='tags text-sm text-cyan-600/90 '>
                                 {displayItem.period}
                             </span>
                         </div>
@@ -50,25 +49,36 @@ export default function TimelineAnalysis({
                 )}
 
                 {/* Analysis text */}
-                <div className='flex-1 min-w-0'>
-                    <h3 className='text-lg font-semibold text-white mb-2 transition-all duration-300'>
+                <div className='flex-1 min-w-0 w-4/5 mx-auto'>
+                    <h3
+                        className={`subtitle mb-2 transition-all duration-300 text-cyan-300 text-shadow-md text-shadow-black/30  italic ${
+                            isPlaceholder
+                                ? "font-headings text-6xl text-center mb-10 animate-float" // style for "Explore the Timeline!"
+                                : "font-bold text-2xl" // style for real item titles
+                        }`}>
                         {displayItem
-                            ? `Historical Context: ${displayItem.title}`
-                            : "Explore the Timeline"}
+                            ? displayItem.title
+                            : "Explore the Timeline!"}
                     </h3>
-                    <p className='text-blue-100/90 leading-relaxed text-sm transition-all duration-300'>
+                    <h4 className='description  mb-2 transition-all duration-300'>
+                        {displayItem ? displayItem.description : ""}
+                    </h4>
+
+                    <p className='paragraph transition-all duration-300'>
                         {displayItem ? displayItem.analysis : defaultText}
                     </p>
 
                     {/* Additional context for active item */}
                     {displayItem && (
-                        <div className='flex space-x-4 mt-3 text-sm text-blue-200/80 transition-all duration-300'>
+                        <div className='flex space-x-4 mt-3 text-sm text-cyan-600/80 transition-all duration-300'>
                             <span>
-                                <strong className='text-white'>Medium:</strong>{" "}
+                                <strong className='text-zinc-300 px-1'>
+                                    Medium:
+                                </strong>{" "}
                                 {displayItem.medium}
                             </span>
                             <span>
-                                <strong className='text-white'>
+                                <strong className='text-zinc-300 px-1'>
                                     Location:
                                 </strong>{" "}
                                 {displayItem.location}
