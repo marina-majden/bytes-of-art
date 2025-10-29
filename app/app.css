@@ -1,24 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Bangers&family=Cal+Sans&family=Cutive+Mono&family=Fragment+Mono:ital@0;1&family=Limelight&family=Mohave:ital,wght@0,300..700;1,300..700&family=Petit+Formal+Script&family=Phudu:wght@300..900&family=Poller+One&family=Pompiere&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Racing+Sans+One&family=Sen:wght@400..800&family=Timmana&family=Trade+Winds&family=Trispace:wght@100..800&family=Trocchi&family=Yellowtail&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Akronim&family=Bangers&family=Cal+Sans&family=Fuzzy+Bubbles:wght@400;700&family=Gaegu&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mogra&family=Protest+Riot&family=Rampart+One&family=Rubik+80s+Fade&family=Rubik+Microbe&family=Special+Elite&family=Walter+Turncoat&family=Zilla+Slab+Highlight:wght@400;700&display=swap");
 @import "tailwindcss";
 
 @theme {
+    --color-mint-500: oklch(0.72 0.11 178);
     --font-sans:
         "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-cursive: "Dancing Script", cursive;
     --font-serif: "Merriweather", serif;
+    --font-display: "Bangers", sans-serif;
+    --font-subtitles: "Sen", sans-serif;
+    --font-cursive: "Yellowtail", sans-serif;
+    --font-mono: "Fragment Mono", monospace;
+    --font-paragraph: "Inter", sans-serif;
+    --font-tags: "Phudu", monospace;
+    --font-headings: "Gaegu", sans-serif;
+    --font-special: "Akronim", cursive;
+    --font-tag: "Rampart One", sans-serif;
+    --font-description: "Special Elite", monospace;
+    /* no: Akronim, Rubiks, Mogra
+    yes: Racing Sans for normal text and subtitles, Rampart One for main title, Special Elite for main (like newspapers), Phudu for tags, Fuzy Bubles for Explore the timeline  */
+
+    --animate-float: float 3s ease-in-out infinite;
 }
 
 html,
 body {
-    @apply bg-white dark:bg-gray-950;
+    @apply bg-indigo-950 text-white;
+}
 
-    @media (prefers-color-scheme: dark) {
-        color-scheme: dark;
+@layer components {
+    .maintitle {
+        @apply text-4xl md:text-6xl lg:text-8xl mb-2 font-display leading-[1em] text-teal-400 text-shadow-lg text-shadow-black/50 select-none;
+    }
+    .subtitle {
+        @apply text-2xl md:text-3xl font-normal font-subtitles text-emerald-100 text-shadow-md text-shadow-black/40 select-none;
+    }
+    .description {
+        @apply md:text-xl font-paragraph font-normal text-center text-neutral-200 text-shadow-md text-shadow-black/30 select-none;
+    }
+    .tags {
+        @apply text-sm md:text-base font-tags font-semibold uppercase tracking-widest text-teal-100 text-shadow-md text-shadow-black/30;
+    }
+    .paragraph {
+        @apply text-base md:text-lg font-paragraph font-thin mx-auto leading-relaxed text-neutral-100 text-shadow-md text-shadow-black/20 select-none;
     }
 }
 
 .timeline {
-    @apply w-screen h-screen px-4 py-8 overflow-y-hidden;
+    @apply w-screen h-screen py-8 overflow-y-hidden;
 }
 
 .hide-scrollbar {
@@ -30,6 +61,26 @@ body {
     display: none;
 }
 
+.pretty-scrollbar::-webkit-scrollbar {
+    display: inside;
+    width: 4px;
+    height: 4px;
+}
+.pretty-scrollbar::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.1);
+    border-radius: 90%;
+}
+.pretty-scrollbar::-webkit-scrollbar-track:hover {
+    background: rgba(208, 163, 184, 0.2);
+}
+.pretty-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 176, 129, 0.5);
+    border-radius: 4px;
+}
+.pretty-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(40, 116, 139, 0.7);
+}
+
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -37,10 +88,16 @@ body {
     overflow: hidden;
 }
 
-.timeline-image {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .timeline-container {
     min-width: max-content;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
