@@ -53,7 +53,7 @@ export default function TimelineAnalysis({
                     <h3
                         className={`subtitle mb-2 transition-all duration-300 text-cyan-300 text-shadow-md text-shadow-black/30  italic ${
                             isPlaceholder
-                                ? "font-headings text-6xl text-center mb-10 animate-float" // style for "Explore the Timeline!"
+                                ? "font-headings font-extrabold text-6xl text-center mb-10 animate-float-circle" // style for "Explore the Timeline!"
                                 : "font-bold text-2xl" // style for real item titles
                         }`}>
                         {displayItem

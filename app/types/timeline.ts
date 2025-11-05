@@ -16,3 +16,11 @@ export interface TimelineData {
     description: string;
     items: TimelineItem[];
 }
+
+export interface TimelineNodeProps {
+    item: TimelineItem;
+    index: number;
+    totalItems: number;
+    onHover: (item: TimelineItem | null) => void;
+    onImageClick: (item: TimelineItem) => void;
+}

@@ -1,53 +1,164 @@
-@import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Bangers&family=Cal+Sans&family=Cutive+Mono&family=Fragment+Mono:ital@0;1&family=Limelight&family=Mohave:ital,wght@0,300..700;1,300..700&family=Petit+Formal+Script&family=Phudu:wght@300..900&family=Poller+One&family=Pompiere&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Racing+Sans+One&family=Sen:wght@400..800&family=Timmana&family=Trade+Winds&family=Trispace:wght@100..800&family=Trocchi&family=Yellowtail&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Akronim&family=Bangers&family=Cal+Sans&family=Fuzzy+Bubbles:wght@400;700&family=Gaegu&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mogra&family=Protest+Riot&family=Rampart+One&family=Rubik+80s+Fade&family=Rubik+Microbe&family=Special+Elite&family=Walter+Turncoat&family=Zilla+Slab+Highlight:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Dosis:wght@200..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Phudu:wght@300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import "tailwindcss";
 
 @theme {
-    --color-mint-500: oklch(0.72 0.11 178);
-    --font-sans:
-        "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-cursive: "Dancing Script", cursive;
-    --font-serif: "Merriweather", serif;
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Dosis", serif;
     --font-display: "Bangers", sans-serif;
-    --font-subtitles: "Sen", sans-serif;
-    --font-cursive: "Yellowtail", sans-serif;
-    --font-mono: "Fragment Mono", monospace;
-    --font-paragraph: "Inter", sans-serif;
     --font-tags: "Phudu", monospace;
-    --font-headings: "Gaegu", sans-serif;
-    --font-special: "Akronim", cursive;
-    --font-tag: "Rampart One", sans-serif;
-    --font-description: "Special Elite", monospace;
+    --font-alter: "Jost", sans-serif;
+    --font-altero: "Ubuntu", sans-serif;
+
     /* no: Akronim, Rubiks, Mogra
     yes: Racing Sans for normal text and subtitles, Rampart One for main title, Special Elite for main (like newspapers), Phudu for tags, Fuzy Bubles for Explore the timeline  */
 
-    --animate-float: float 3s ease-in-out infinite;
+    --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+    @keyframes fade-in-scale {
+        0% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    --animate-float: float 3s ease infinite;
+    @keyframes float {
+        0%,
+        100% {
+            translate-y: -2px;
+        }
+        50% {
+            translate-y: 2px;
+        }
+    }
+    --animate-float-circle: float-circle 3s ease infinite;
+    @keyframes float-circle {
+        0%,
+        100% {
+            translate: 0px -4px;
+        }
+        50% {
+            translate: 0px 2px;
+        }
+    }
 }
 
 html,
 body {
-    @apply bg-indigo-950 text-white;
+    @apply max-w-screen min-h-screen w-full h-full bg-indigo-950 text-slate-200 overflow-x-scroll;
 }
 
+a.active {
+    @apply underline underline-offset-2;
+}
+
+a.pending {
+    @apply animate-pulse;
+}
+
+@layer base {
+    h1 {
+        font-size: var(--text-6xl);
+    }
+    h2 {
+        font-size: var(--text-4xl);
+    }
+    h3 {
+        font-size: var(--text-2xl);
+    }
+    h4 {
+        font-size: var(--text-xl);
+    }
+    h5 {
+        font-size: var(--text-lg);
+    }
+}
 @layer components {
     .maintitle {
         @apply text-4xl md:text-6xl lg:text-8xl mb-2 font-display leading-[1em] text-teal-400 text-shadow-lg text-shadow-black/50 select-none;
     }
     .subtitle {
-        @apply text-2xl md:text-3xl font-normal font-subtitles text-emerald-100 text-shadow-md text-shadow-black/40 select-none;
+        @apply text-xl md:text-2xl font-normal font-serif text-emerald-100 text-shadow-md text-shadow-black/40 select-none;
     }
     .description {
-        @apply md:text-xl font-paragraph font-normal text-center text-neutral-200 text-shadow-md text-shadow-black/30 select-none;
+        @apply md:text-xl font-sans font-normal indent-3 text-neutral-200 text-shadow-md text-shadow-black/30 select-none;
     }
     .tags {
         @apply text-sm md:text-base font-tags font-semibold uppercase tracking-widest text-teal-100 text-shadow-md text-shadow-black/30;
     }
     .paragraph {
-        @apply text-base md:text-lg font-paragraph font-thin mx-auto leading-relaxed text-neutral-100 text-shadow-md text-shadow-black/20 select-none;
+        @apply text-base md:text-lg font-sans font-thin mx-auto leading-relaxed text-neutral-100 text-shadow-md text-shadow-black/20 select-none;
+    }
+    .navlink {
+        @apply px-3 py-2 text-lg md:text-2xl lg:text-3xl font-display font-semibold tracking-wide text-indigo-500 hover:text-indigo-400 active:text-blue-400 text-shadow-lg text-shadow-black/40 transition-all duration-200 ease-in-out select-none;
+    }
+    .logo {
+        @apply transition-all duration-300 ease-in-out cursor-pointer;
+    }
+    .logo span {
+        @apply inline-flex text-3xl font-display font-extrabold  text-blue-500 text-shadow-black text-shadow-md select-none transition-all duration-400 ease-in-out;
+    }
+    .logo span:nth-of-type(2) {
+        @apply text-indigo-400 text-xl;
+    }
+    .logo span:last-of-type {
+        @apply text-teal-400 text-3xl;
     }
 }
 
+.logo span:first-of-type::after {
+    content: "ytes ";
+    top: 0;
+    right: 0;
+    width: 0;
+    display: none;
+    padding-right: 3px;
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-extrabold);
+    transition: all 400ms ease-in-out;
+}
+.logo:hover span:first-of-type::after {
+    display: inline-flex;
+    width: 100%;
+    transition: all 400ms ease-in-out;
+}
+
+.logo span:nth-of-type(2)::after {
+    content: "f ";
+    top: 0;
+    right: 0;
+    width: 0;
+    display: none;
+    padding-right: 3px;
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-extrabold);
+    transition: all 400ms ease-in-out;
+}
+.logo:hover span:nth-of-type(2):after {
+    width: 100%;
+    display: inline-flex;
+    transition: all 400ms ease-in-out;
+}
+.logo span:last-of-type::after {
+    content: "RT";
+    display: none;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-extrabold);
+    transition: all 400ms ease-in-out;
+}
+.logo:hover span:last-of-type::after {
+    display: inline-flex;
+    transition: display 400ms ease-in-out;
+}
 .timeline {
     @apply w-screen h-screen py-8 overflow-y-hidden;
 }
@@ -83,21 +194,13 @@ body {
 
 .line-clamp-2 {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+
+    -webkit-line-clamp: 3;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 .timeline-container {
     min-width: max-content;
-}
-
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
 }
