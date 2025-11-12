@@ -1,4 +1,3 @@
-// src/components/PerceptionToggle.tsx
 import React from "react";
 
 interface Props {
