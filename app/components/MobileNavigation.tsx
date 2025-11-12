@@ -74,7 +74,7 @@ export default function MobileNavigation({
                                 isActive ? "text-blue-400" : "",
                             ].join(" ")
                         }>
-                        Pretty City, Pity City
+                        City Of L/Night
                     </NavLink>
                 </li>
             </ul>

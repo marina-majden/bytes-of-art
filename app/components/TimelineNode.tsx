@@ -1,13 +1,6 @@
 import type { TimelineNodeProps } from "../types/timeline";
 import { useState } from "react";
 
-/* interface TimelineNodeProps {
-    item: TimelineItemType;
-    index: number;
-    totalItems: number;
-    onHover: (item: TimelineItemType | null) => void;
-    onImageClick: (item: TimelineItemType) => void;
-} */
 
 export default function TimelineNode({
     item,
