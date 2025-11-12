@@ -30,7 +30,7 @@ export default function InteractiveTimeline({
     };
 
     return (
-        <div className='w-screen h-screen bg-gradient-to-br from-blue-900 to-violet-950'>
+        <div className='w-screen min-h-screen h-[2000px]'>
             {/* Header */}
             <div className='text-center mb-12 px-4 pt-8'>
                 <h1 className='maintitle mb-4'>{data.title}</h1>

@@ -36,7 +36,7 @@ export default function TimelineNode({
     const randDurationMs = 1000 + ((index * 100) % 500); // 700,03,
 
     return (
-        <div className='flex flex-col items-center group'>
+        <div className='flex flex-col items-center group h-full'>
             {/* Year Label */}
             <div
                 className={` mb-4 transition-translate animate-float ${
@@ -54,9 +54,10 @@ export default function TimelineNode({
 
             {/* Image Node */}
 
-            <div className='relative cursor-pointer'>
+            <div className='relative w-20 h-30 cursor-pointer z-50'>
                 {/* Click for full-size image dialog */}
                 <button
+                    type='button'
                     onClick={handleImageClick}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -66,8 +67,8 @@ export default function TimelineNode({
               relative rounded-full shadow-2xl timeline-image
               ${
                   isHovered
-                      ? "border-2 border-teal-200 scale-115 z-10 shadow-2xl"
-                      : "border-3 border-teal-400 scale-100"
+                      ? "border-3 border-teal-200 scale-115 shadow-2xl"
+                      : "border-2 border-teal-400 scale-100"
               }
               transition-all duration-300 ease-out
             `}>
@@ -86,7 +87,7 @@ export default function TimelineNode({
 
             {/* Instruction for click action */}
             <div
-                className={`mt-8 transition-all duration-300 ${
+                className={`mt-10 transition-all duration-300 ${
                     isHovered ? "opacity-100 scale-100" : "opacity-0 scale-95"
                 }`}>
                 <span className='text-neutral-200 text-sm font-thin bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm'>

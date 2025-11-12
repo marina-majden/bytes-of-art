@@ -46,7 +46,7 @@ export default function BytesOfArt() {
                     </p>
                     <div className='icon mb-4'>🎨</div>
                     <a
-                        href='/treca'
+                        href='/city'
                         className='btn bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition-colors'>
                         Explore Movements
                     </a>
