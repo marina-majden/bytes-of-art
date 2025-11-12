@@ -71,11 +71,33 @@ If you're familiar with deploying Node applications, the built-in app server is 
 Make sure to deploy the output of `npm run build`
 
 ```
+lit-art-project
+├── .react-router
+├── app/
+│   ├── assets/       # Static assets
+│   ├── components/   # Components
+│   ├── data/         # Data files 
+│   ├── lib/          # Shared business logic
+│   ├── routes/       # Route modules / pages
+│   ├── types/        # Type definitions
+│   ├── app.css       # App-level styles
+│   ├── root.tsx      # Root component
+│   └── routes.ts     # Route definitions  
+│   ├── public/         # Static assets
+│   ├── routes/    # Route definitions
+├── node_modules/   # Node modules
+├── public/         # Static assets
+├── .dockerignore
+├── .gitignore
+├── .hintrc
+├── components.json
+├── Dockerfile
 ├── package.json
 ├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+├── react-router-config.ts
+├── README.md
+├── tsconfig.json
+└── vite.config.ts
 ```
 
 ## Styling
