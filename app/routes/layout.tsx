@@ -25,12 +25,10 @@ export default function Layout() {
     }, [isMobileMenuOpen]);
 
     return (
-        <div className='w-full max-w-screen h-full'>
+        <div className='w-screen min-h-screen h-full flex flex-col space-between'>
             <header className='flex items-center justify-between p-4 bg-transparent'>
                 <div className='logo header-logo text-lg font-semibold flex flex-row items-baseline-last gap-0'>
-                    <span>B</span>
-                    <span>o</span>
-                    <span>A</span>
+                    <span>Lit Art 🔥</span>
                 </div>
 
                 {/* Mobile menu button */}
@@ -50,11 +48,11 @@ export default function Layout() {
                 onClose={handleCloseMobileMenu}
             />
 
-            <main>
+            <main className='w-full min-h-screen h-full flex flex-col items-center justify-center gap-2 py-2 mx-auto scroll-smooth snap-proximity'>
                 <Outlet />
             </main>
 
-            <footer className='w-full h-full py-8 mx-auto'>
+            <footer className='w-full'>
                 <p className='text-center text-sm p-6 mx-auto'>
                     <span className='text-teal-500 font-bold'>
                         Bytes of Art

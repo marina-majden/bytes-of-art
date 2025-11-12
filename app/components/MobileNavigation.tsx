@@ -12,7 +12,7 @@ export default function MobileNavigation({
 }: MobileNavigationProps) {
     return (
         <nav
-            className={`fixed inset-y-0 top-20 right-0 z-40 w-dvw h-dvh bg-linear-to-b/decreasing from-transparent to-blue-950  backdrop-blur-xl transform transition-transform duration-300 ease-out
+            className={`fixed inset-y-0 top-20 right-0 z-40 w-dvw h-dvh bg-transparent backdrop-blur-xl transform transition-transform duration-300 ease-out
         ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
             aria-hidden
             aria-label='Navigation'>
