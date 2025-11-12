@@ -1,17 +1,64 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import boccioni from "../assets/boccioni-removebg-preview.png";
-import manet from "../assets/Manet-Bar.mp4";
 import { gsap } from "gsap";
+import { Link } from "react-router";
 
-export interface BentoCardProps {
-    color?: string;
-    title?: string;
-    description?: string;
+export interface BentoCard {
+    color: string;
+    border?: boolean;
     label?: string;
+    description?: string;
+    href?: string;
+    ariaLabel: string;
     image?: string;
-    textAutoHide?: boolean;
-    disableAnimations?: boolean;
+    className?: string;
 }
+
+const bentoCardData: BentoCard[] = [
+    {
+        color: "hsla(262, 78%, 23%, 0.5)",
+        label: "Portraits",
+        description: "Selfies were always here",
+        href: "/portraits",
+        ariaLabel: "Portraits",
+        className: "md:col-span-1 md:row-span-1",
+    },
+    {
+        color: "hsla(275, 94%, 21%, 0.5)",
+        label: "Symbols",
+        description: "Talking without words",
+        href: "/symbols",
+        ariaLabel: "symbols",
+        className: "md:col-span-1 md:row-span-1",
+    },
+    {
+        color: "transparent",
+        ariaLabel: "Fouquet's Madonna",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jean_Fouquet_005.jpg/960px-Jean_Fouquet_005.jpg",
+        className: "md:col-span-2 md:row-span-2",
+    },
+    {
+        color: "transparent",
+        ariaLabel: "Kirchner's Davos Painting",
+        image: "https://www.meisterdrucke.us/kunstwerke/1260px/Ernst_Ludwig_Kirchner_-_Davos_mit_Kirche_Davos_im_Sommer_-_%28MeisterDrucke-688266%29.jpg",
+        className: "md:col-span-2 md:row-span-2",
+    },
+    {
+        color: "transparent",
+        border: false,
+        ariaLabel: "Boccioni Scuplture",
+        image: boccioni,
+        className: "md:col-span-1 md:row-span-1",
+    },
+    {
+        color: "hsl(227, 59%, 21%, 0.5)",
+        label: "City of Light",
+        description: "Or city of night?",
+        href: "/city",
+        ariaLabel: "city",
+        className: "md:col-span-1 md:row-span-1",
+    },
+];
 
 export interface BentoProps {
     textAutoHide?: boolean;
@@ -32,48 +79,19 @@ const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = "132, 0, 255";
 const MOBILE_BREAKPOINT = 768;
 
-const cardData: BentoCardProps[] = [
-    {
-        color: "#060010",
-        title: "Analytics",
-        description: "Track user behavior",
-        label: "Insights",
-    },
-    {
-        color: "#060010",
-        title: "Dashboard",
-        description: "Centralized data view",
-        label: "Overview",
-    },
-    {
-        color: "#060010",
-        title: "Collaboration",
-        description: "Work together seamlessly",
-        label: "Teamwork",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jean_Fouquet_005.jpg/960px-Jean_Fouquet_005.jpg",
-    },
-    {
-        color: "#060010",
-        title: "Automation",
-        description: "Streamline workflows",
-        label: "Efficiency",
-        image: "https://www.meisterdrucke.us/kunstwerke/1260px/Ernst_Ludwig_Kirchner_-_Davos_mit_Kirche_Davos_im_Sommer_-_%28MeisterDrucke-688266%29.jpg",
-    },
-    {
-        color: "#060010",
-        title: "Integration",
-        description: "Connect favorite tools",
-        label: "Connectivity",
-        image: boccioni,
-    },
-    {
-        color: "#060010",
-        title: "Security",
-        description: "Enterprise-grade protection",
-        label: "Protection",
-        image: manet,
-    },
-];
+const DEFAULT_BENTO_PROPS: BentoProps = {
+    textAutoHide: false,
+    enableStars: true,
+    enableSpotlight: true,
+    enableBorderGlow: true,
+    disableAnimations: false,
+    spotlightRadius: DEFAULT_SPOTLIGHT_RADIUS,
+    particleCount: DEFAULT_PARTICLE_COUNT,
+    enableTilt: true,
+    glowColor: DEFAULT_GLOW_COLOR,
+    clickEffect: true,
+    enableMagnetism: true,
+};
 
 const createParticleElement = (
     x: number,
@@ -610,38 +628,27 @@ const MagicBento: React.FC<BentoProps> = ({
           }
           
           .card-responsive {
-            grid-template-columns: 1fr;
-            width: 90%;
-            margin: 0 auto;
-            padding: 0;
-          }
-          
-          @media (min-width: 600px) {
-            .card-responsive {
-              grid-template-columns: repeat(2, 1fr);
-            }
-          }
-          
-          @media (min-width: 1024px) {
-            .card-responsive {
-              grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .card-responsive .card:nth-child(3) {
-              grid-column: span 2;
-              grid-row: span 2;
-            }
-            
-            .card-responsive .card:nth-child(4) {
-              grid-column: 1 / span 2;
-              grid-row: 2 / span 2;
-            }
-            
-            .card-responsive .card:nth-child(6) {
-              grid-column: 4;
-              grid-row: 3;
-            }
-          }
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+@media (min-width: 600px) {
+    .card-responsive {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-responsive {
+
+        grid-template-columns: repeat(4, 1fr);
+        /* Možda i 'grid-auto-flow: dense;' za popunjavanje rupa */
+        grid-auto-flow: dense;
+    }
+    
+}
           
           .card--border-glow::after {
             content: '';
@@ -732,16 +739,14 @@ const MagicBento: React.FC<BentoProps> = ({
 
             <BentoCardGrid gridRef={gridRef}>
                 <div className='card-responsive grid gap-2'>
-                    {cardData.map((card, index) => {
-                        const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)]  ${card.image ? "p-0" : "p-5"} ${
+                    {bentoCardData.map((card, index) => {
+                        const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${card.image ? "p-0 border-none" : "p-5"} ${
                             enableBorderGlow ? "card--border-glow" : ""
-                        }`;
-
+                        } ${card.className || ""}`;
                         const cardStyle = {
                             "backgroundColor":
                                 card.color || "var(--background-dark)",
-
-                            "borderColor": "var(--border-color)",
+                            "borderColor": card.color,
                             "color": "var(--white)",
                             "--glow-x": "50%",
                             "--glow-y": "50%",
@@ -762,29 +767,35 @@ const MagicBento: React.FC<BentoProps> = ({
                                     clickEffect={clickEffect}
                                     enableMagnetism={enableMagnetism}>
                                     {card.image ? (
-                                        <img
-                                            src={card.image}
-                                            alt='image'
-                                            className='scale-100 absolute top-0 left-0 w-full object-cover hover:scale-105 transition-all duration-300 ease-in-out'
-                                        />
+                                        <div className='group relative  w-full h-full overflow-hidden rounded-lg'>
+                                            <img
+                                                src={card.image}
+                                                alt={card.ariaLabel} // <-- alt tag je bolji od aria-label
+                                                className='absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:scale-110'
+                                            />
+                                        </div>
                                     ) : (
-                                        <>
-                                            <div className='card__header flex justify-between gap-3 relative text-white'>
-                                                <span className='card__label text-base'>
-                                                    {card.label}
-                                                </span>
-                                            </div>
-                                            <div className='card__content flex flex-col relative text-white'>
-                                                <h3
-                                                    className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}>
-                                                    {card.title}
-                                                </h3>
-                                                <p
-                                                    className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}>
-                                                    {card.description}
-                                                </p>
-                                            </div>
-                                        </>
+                                        <div className='w-full h-full cursor-pointer'>
+                                            <Link
+                                                to={card.href || "#"}
+                                                aria-label={card.ariaLabel}>
+                                                <div className='card__header flex justify-between gap-3 relative text-white cursor-pointer'>
+                                                    <span className='w-full h-full card__label text-base'>
+                                                        {card.label}
+                                                    </span>
+                                                </div>
+                                                <div className='card__content flex flex-col relative text-white'>
+                                                    <h3
+                                                        className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}>
+                                                        {card.label}
+                                                    </h3>
+                                                    <p
+                                                        className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}>
+                                                        {card.description}
+                                                    </p>
+                                                </div>{" "}
+                                            </Link>
+                                        </div>
                                     )}
                                 </ParticleCard>
                             );
@@ -931,7 +942,7 @@ const MagicBento: React.FC<BentoProps> = ({
                                 <div className='card__content flex flex-col relative text-white'>
                                     <h3
                                         className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}>
-                                        {card.title}
+                                        {card.label}
                                     </h3>
                                     <p
                                         className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}>
