@@ -10,7 +10,7 @@ export default [
     layout("routes/layout.tsx", [
         route("portraits", "routes/portraits.tsx"),
         route("symbolism", "routes/symbolism.tsx"),
-        route("city", "components/CityMap.tsx/"),
+        route("city", "routes/city.tsx/"),
     ]),
-    route("city/:locationId", "routes/city.tsx"),
+    route("city/:locationId", "components/CurrentCity.tsx"),
 ] satisfies RouteConfig;
