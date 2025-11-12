@@ -1,4 +1,4 @@
-// This is the layout route for the application which contains header with logo and navigation list of four links, and footer with copyright information.
+// layout.tsx
 import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router";
 import { IoMenu, IoClose } from "react-icons/io5";
@@ -25,7 +25,7 @@ export default function Layout() {
     }, [isMobileMenuOpen]);
 
     return (
-        <div className='w-screen min-h-screen h-full flex flex-col space-between'>
+        <div className='w-screen min-h-screen h-full flex flex-col justify-between'>
             <header className='flex items-center justify-between p-4 bg-transparent'>
                 <div className='logo header-logo text-lg font-semibold flex flex-row items-baseline-last gap-0'>
                     <span>Lit Art 🔥</span>
