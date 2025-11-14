@@ -72,8 +72,24 @@ html {
     overflow-x: hidden;
     font-size: 1rem;
 }
+
 body {
-    @apply max-w-screen min-h-screen w-full h-full bg-gradient-to-br from-blue-950 via-gray-950 to-indigo-950 bg-fixed text-neutral-300 overflow-x-hidden;
+    --s: 129px; /* control the size*/
+    --c1: #1b1b2c;
+    --c2: #001219;
+
+    --_g: #0000 52%, var(--c1) 54% 57%, #0000 59%;
+    background:
+        radial-gradient(farthest-side at -33.33% 50%, var(--_g)) 0
+            calc(var(--s) / 2),
+        radial-gradient(farthest-side at 50% 133.33%, var(--_g))
+            calc(var(--s) / 2) 0,
+        radial-gradient(farthest-side at 133.33% 50%, var(--_g)),
+        radial-gradient(farthest-side at 50% -33.33%, var(--_g)),
+        var(--c2);
+    background-size:
+        calc(var(--s) / 4.667) var(--s),
+        var(--s) calc(var(--s) / 4.667);
 }
 
 a.active {
@@ -166,11 +182,11 @@ img {
     overflow: hidden;
 }
 
-img.zoom-effect {
+img.zoom {
     /* the coordinate of the zoom */
     --x: 50%;
     --y: 50%;
-    /**/
+
     transform: scale(var(--zoom));
     transform-origin: var(--x) var(--y);
     clip-path: inset(
@@ -179,10 +195,9 @@ img.zoom-effect {
             calc((1 - 1 / var(--zoom)) * (100% - var(--y)))
             calc((1 - 1 / var(--zoom)) * (var(--x)))
     );
-    width: 200px;
     cursor: crosshair;
 }
-img.zoom-effect:hover {
+img.zoom:hover {
     --zoom: 2; /* control the zoom level */
 }
 
