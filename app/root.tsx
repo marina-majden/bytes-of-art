@@ -32,11 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     name='viewport'
                     content='width=device-width, initial-scale=1'
                 />
-                <title>Lit Art | Portreti</title>
-                <meta
-                    name='description'
-                    content='Pogledajte našu kolekciju portreta.'
-                />
+
                 <Links />
             </head>
             <body>
