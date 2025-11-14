@@ -6,6 +6,7 @@ import {
     createParticleElement,
 } from "./bento.helpers";
 
+// TODO: add more particles 
 const ParticleCard: React.FC<{
     children: React.ReactNode;
     className?: string;

@@ -25,9 +25,9 @@ export default function Layout() {
     }, [isMobileMenuOpen]);
 
     return (
-        <div className='w-screen min-h-screen h-full flex flex-col justify-between'>
+        <div className='max-w-screen p-0 m-0'>
             <header className='flex items-center justify-between p-4 bg-transparent'>
-                <div className='logo header-logo text-lg font-semibold flex flex-row items-baseline-last gap-0'>
+                <div className='logo header-logo text-lg font-display font-semibold flex flex-row items-baseline-last gap-0'>
                     <span>Lit Art 🔥</span>
                 </div>
 
@@ -48,7 +48,7 @@ export default function Layout() {
                 onClose={handleCloseMobileMenu}
             />
 
-            <main className='w-full min-h-screen h-full flex flex-col items-center justify-center gap-2 py-2 mx-auto scroll-smooth snap-proximity'>
+            <main className='w-full h-full mx-auto'>
                 <Outlet />
             </main>
 

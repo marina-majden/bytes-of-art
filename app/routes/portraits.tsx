@@ -3,19 +3,20 @@ import TimelineNode from "../components/TimelineNode";
 import TimelineAnalysis from "../components/TimelineAnalysis";
 import ImageDialog from "../components/ImageDialog";
 import { useState } from "react";
+import { artTimelineData } from "~/data/artTimelineData";
 
 interface InteractiveTimelineProps {
     data: TimelineData;
 }
 
-export default function Timeline({ data }: InteractiveTimelineProps) {
+function Timeline({ data }: InteractiveTimelineProps) {
     const [activeItem, setActiveItem] = useState<TimelineItem | null>(null);
     const [dialogItem, setDialogItem] = useState<TimelineItem | null>(null);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     // Default text when no item is active
     const defaultAnalysis =
-        "This timeline explores how leadership portraiture has evolved across centuries. Hover over any portrait to see its historical significance and analysis of how it represents power and authority in its cultural context.";
+        "This timeline explores how portraits of historical figures have evolved across time. Hover over any portrait to learn more!";
 
     const handleImageClick = (item: TimelineItem) => {
         setDialogItem(item);
@@ -28,36 +29,27 @@ export default function Timeline({ data }: InteractiveTimelineProps) {
     };
 
     return (
-        <div className='w-screen min-h-screen h-[2000px]'>
+        <div className='w-screen h-screen'>
             {/* Header */}
-            <div className='text-center mb-12 px-4 pt-8'>
-                <h1 className='maintitle mb-4'>{data.title}</h1>
+            <div className='text-center px-4'>
+                <h2 className='maintitle mb-4'>{data.title}</h2>
                 <p className='subtitle mx-auto'>{data.description}</p>
             </div>
 
-            {/* Timeline Container */}
-            <div className='relative'>
-                {/* Central Timeline Line */}
-                <div className='absolute left-1/2 top-[40%] transform -translate-x-1/2 -translate-y-[40%] w-full h-1 bg-teal-500 z-0'></div>
-
-                {/* Timeline Nodes Container */}
-                <div className='relative z-10 overflow-x-hidden hide-scrollbar'>
-                    <div className='flex justify-center items-center min-w-max -translate-y-[5%] px-16 py-6'>
-                        <div className='flex items-center space-x-4 lg:space-x-12'>
-                            {data.items.map(
-                                (item: TimelineItem, index: number) => (
-                                    <TimelineNode
-                                        key={item.id}
-                                        item={item}
-                                        index={index}
-                                        totalItems={data.items.length}
-                                        onHover={setActiveItem}
-                                        onImageClick={handleImageClick}
-                                    />
-                                )
-                            )}
-                        </div>
-                    </div>
+            {/* Timeline Nodes Container */}
+            <div className='w-full flex flex-col justify-center items-center'>
+                <div className='absolute w-screen h-1 bg-teal-500 shadow-xl shadow-gray-950 z-0'></div>
+                <div className='w-full h-[380px] z-10 flex items-center justify-center'>
+                    {data.items.map((item: TimelineItem, index: number) => (
+                        <TimelineNode
+                            key={item.id}
+                            item={item}
+                            index={index}
+                            totalItems={data.items.length}
+                            onHover={setActiveItem}
+                            onImageClick={handleImageClick}
+                        />
+                    ))}
                 </div>
             </div>
 
@@ -75,4 +67,8 @@ export default function Timeline({ data }: InteractiveTimelineProps) {
             />
         </div>
     );
+}
+
+export default function Portraits() {
+    return <Timeline data={artTimelineData} />;
 }

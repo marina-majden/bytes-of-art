@@ -27,7 +27,7 @@ export default function TimelineAnalysis({
     }, [activeItem]);
 
     return (
-        <div className='w-full h-full z-50 max-w-6xl mx-auto px-4 py-2'>
+        <div className='w-full max-w-6xl mx-auto px-4 py-2'>
             <div
                 className={`flex items-start space-x-6 transition-all duration-300 ${
                     isVisible
