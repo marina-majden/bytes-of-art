@@ -12,6 +12,7 @@
           "scrollbar-width: none"
         ]
       }
-    ]
+    ],
+    "axe/forms": "off"
   }
 }

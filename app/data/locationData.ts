@@ -194,7 +194,7 @@ export const locations: Record<string, LocationData> = {
             themeName: "Ekspresionizam: Pejzaž kao ekspresija",
             themeColor: "bg-red-800 text-gray-200", // Intenzivna, nemirna tema
             // Analiza Varlajeve 'Crvene kuće'
-            text: "Pejzaž nije ono što vidimo, već ono što osjećamo. Umjetnik 'deformira prostor'[cite: 6116]. 'Na rubu livada je kuća parnog mlina... to je krvlju namrljana uglasta i gruba / slikarija na nebu'[cite: 6126, 6245].",
+            text: "Pejzaž nije ono što vidimo, već ono što osjećamo. Umjetnik 'deformira prostor'. 'Na rubu livada je kuća parnog mlina... to je krvlju namrljana uglasta i gruba / slikarija na nebu'.",
             textAuthor: "Antun Branko Šimić (Hercegovina)",
             imageSrc:
                 "https://i.pinimg.com/736x/5e/b3/14/5eb31499e20419834c1426cf318a62ec.jpg",
@@ -204,13 +204,13 @@ export const locations: Record<string, LocationData> = {
                     x: "left-[60%]",
                     y: "top-[65%]",
                     description:
-                        "Nemimetička boja: Intenzivna crvena boja kuće nije stvarna; ona je 'krvlju namrljana'[cite: 6126], izražava nemir, a ne mir.",
+                        "Nemimetička boja: Intenzivna crvena boja kuće nije stvarna; ona je 'krvlju namrljana', izražava nemir, a ne mir.",
                 },
                 {
                     x: "left-[30%]",
                     y: "top-[50%]",
                     description:
-                        "Deformacija: 'Neprirodno zavijene linije grana' [cite: 5121] u prvom planu stvaraju prepreku i 'nelagodan ugođaj'[cite: 5123].",
+                        "Deformacija: 'Neprirodno zavijene linije grana' u prvom planu stvaraju prepreku i 'nelagodan ugođaj'.",
                 },
             ],
         },
@@ -257,7 +257,7 @@ export const locations: Record<string, LocationData> = {
                     x: "left-[40%]",
                     y: "top-[45%]",
                     description:
-                        "Vlak kao 'Krik': Vlak 'vrišti'[cite: 6100]. To je personifikacija koja industrijskoj buci daje osjećaj tjeskobe.",
+                        "Vlak kao 'Krik': Vlak 'vrišti'. To je personifikacija koja industrijskoj buci daje osjećaj tjeskobe.",
                 },
                 {
                     x: "left-[55%]",

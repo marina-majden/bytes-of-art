@@ -1,7 +1,7 @@
 // Konstante
-export const DEFAULT_PARTICLE_COUNT = 12;
+export const DEFAULT_PARTICLE_COUNT = 222;
 export const DEFAULT_SPOTLIGHT_RADIUS = 300;
-export const DEFAULT_GLOW_COLOR = "132, 0, 255";
+export const DEFAULT_GLOW_COLOR = "121, 97, 255";
 export const MOBILE_BREAKPOINT = 768;
 
 // Pomoćne funkcije

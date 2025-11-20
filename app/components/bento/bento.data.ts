@@ -1,5 +1,5 @@
 import type { BentoCard } from "./bento.types";
-import boccioni from "../../assets/boccioni-removebg-preview.png"; // Putanja se možda treba ažurirati
+import boccioni from "../../assets/boccioni-removebg-preview.png"; 
 
 export const bentoCardData: BentoCard[] = [
     {

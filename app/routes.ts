@@ -13,4 +13,8 @@ export default [
         route("city", "routes/city.tsx/"),
     ]),
     route("city/:locationId", "components/CurrentCity.tsx"),
+    route("story", "routes/story.tsx"),
+    route("time", "routes/time.tsx"),
+    route("iceberg", "components/IcebergTheory.tsx"),
+    route("detail", "routes/artwork-detail.tsx"),
 ] satisfies RouteConfig;

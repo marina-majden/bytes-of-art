@@ -96,3 +96,99 @@ export const artTimelineData: TimelineData = {
         },
     ],
 };
+export const artTimelineDataHR: TimelineData = {
+    title: "Portreti, politika i propaganda",
+    description:
+        "umjetnost dočaravanja složenih i moćnih osobnosti u slikarstvu",
+    items: [
+        {
+            id: "1",
+            year: "27. pr. Kr.",
+            title: "August iz Prima Porte",
+            artist: "nepoznat",
+            description:
+                "Rimska imperijalna propagandna skulptura koja prikazuje Augusta kao vojnog vođu",
+            imageUrl:
+                "[https://www.researchgate.net/profile/Tayfun-Hakan/publication/330747316/figure/fig1/AS:733422255353858@1551872900620/Augustus-of-Prima-Porta-Statue-of-Augustus-Caesar-White-marble-Vatican-Museum-1st.png](https://www.researchgate.net/profile/Tayfun-Hakan/publication/330747316/figure/fig1/AS:733422255353858@1551872900620/Augustus-of-Prima-Porta-Statue-of-Augustus-Caesar-White-marble-Vatican-Museum-1st.png)",
+            period: "Rimsko Carstvo",
+            medium: "Mramorna skulptura",
+            location: "Vatikanski muzeji",
+            analysis:
+                "Rimski portreti naglašavali su vojnu vještinu i božansku povezanost. August je prikazan i kao zapovjednik i kao božansko biće, uspostavljajući predložak vladara kao smrtnog vođe i polubožanskog entiteta. Prikazi na oklopu pričaju političke priče putem mitoloških referenci.",
+        },
+        {
+            id: "2",
+            year: "1540",
+            title: "Henrik VII. u 49. godini",
+            artist: "Hans Holbein mlađi",
+            description:
+                "Remek-djelo Hansa Holbeina mlađeg koje prikazuje suptilne liderske kvalitete",
+            imageUrl:
+                "[https://upload.wikimedia.org/wikipedia/commons/8/81/Enrique_VIII_de_Inglaterra%2C_por_Hans_Holbein_el_Joven.jpg](https://upload.wikimedia.org/wikipedia/commons/8/81/Enrique_VIII_de_Inglaterra%2C_por_Hans_Holbein_el_Joven.jpg)",
+            period: "Renesansa",
+            medium: "Ulje na topoli",
+            location: "Galleria Nazionale, Palazzo Barberini, Rim",
+            analysis:
+                "Ova moćna i autoritativna slika, iako oblik političke propagande, postala je standardni prikaz kralja. Dočarava golemo bogatstvo i moć kroz njegov zapovjedni stav, raskošnu odjeću i istaknuti šaroplet, unatoč izostavljanju tradicionalnih simbola poput krune. ",
+        },
+        {
+            id: "3",
+            year: "1796",
+            title: "Napoleon prelazi Alpe",
+            artist: "Jacques-Louis David",
+            description:
+                "Dramatičan prikaz Napoleona kao herojskog vođe Jacques-Louis Davida",
+            imageUrl:
+                "[https://www.reproduction-gallery.com/catalogue/uploads/1662522259_large-image_jacques-louis-david-napoleon-crossing-the-alps-lg.webp](https://www.reproduction-gallery.com/catalogue/uploads/1662522259_large-image_jacques-louis-david-napoleon-crossing-the-alps-lg.webp)",
+            period: "Neoklasicizam",
+            medium: "Ulje na platnu",
+            location: "Dvorac Malmaison",
+            analysis:
+                "Portreti baroknog doba koristili su dramatično osvjetljenje, bogate teksture i raskošne ambijente kako bi naglasili apsolutnu moć. Portret Luja XIV. uspostavlja mitologiju 'Kralja Sunca' – vladara kao središta svemira. Svaki element, od držanja do odjeće, prenosi neosporan autoritet.",
+        },
+        {
+            id: "4",
+            year: "1865",
+            title: "Carica Elizabeta Austrijska",
+            artist: "Franz Xaver Winterhalter",
+            description:
+                "Jedna od najpoznatijih i najslavnijih slika Sisi koja je učvrstila njezin javni imidž kao legendarne ljepotice.",
+            imageUrl:
+                "[https://fashionhistory.fitnyc.edu/wp-content/uploads/2018/05/Elisabeth_of_Austria_by_Franz_Xaver_Winterhalter.jpg](https://fashionhistory.fitnyc.edu/wp-content/uploads/2018/05/Elisabeth_of_Austria_by_Franz_Xaver_Winterhalter.jpg)",
+            period: "Romantizam",
+            medium: "Ulje na platnu",
+            location: "Nacionalna galerija portreta Smithsonian",
+            analysis:
+                "Slika je značajna i umjetnički, zbog Winterhalterove maestralne tehnike, i povijesno, jer je služila kao idealiziran i utjecajan prikaz monarhinje 19. stoljeća koji je pomogao održati javni interes za austrijsku monarhiju. ",
+        },
+        {
+            id: "5",
+            year: "1865",
+            title: "Portret Abrahama Lincolna",
+            artist: "George Peter Alexander Healy",
+            description:
+                "Prikaz Lincolna Georgea Petera Alexandera Healyja tijekom Građanskog rata",
+            imageUrl:
+                "[https://upload.wikimedia.org/wikipedia/commons/5/51/George_P.A._Healy_-_Abraham_Lincoln_-_Google_Art_Project.jpg](https://upload.wikimedia.org/wikipedia/commons/5/51/George_P.A._Healy_-_Abraham_Lincoln_-_Google_Art_Project.jpg)",
+            period: "Američka umjetnost 19. stoljeća",
+            medium: "Ulje na platnu",
+            location: "Bijela kuća",
+            analysis:
+                "Portreti 19. stoljeća počeli su odražavati demokratske ideale i osobne vrline. Lincoln je portretiran sa svečanim, zamišljenim izrazom, naglašavajući njegovu moralnu odlučnost i povezanost s običnim ljudima. Jednostavnost kompozicije u suprotnosti je s ranijim raskošnim stilovima, ističući karakter iznad statusa.",
+        },
+        {
+            id: "6",
+            year: "2009",
+            title: "Službeni portret Baracka Obame",
+            artist: "Kehinde Wiley",
+            description: "Vrlo nekonvencionalan pristup predsjedničkom portretiranju",
+            imageUrl:
+                "[https://media.newyorker.com/photos/5a82035156b75c08a3e5b5b4/master/w_1600%2Cc_limit/Cunningham-Obama-Kehinde-Wiley.jpg](https://media.newyorker.com/photos/5a82035156b75c08a3e5b5b4/master/w_1600%2Cc_limit/Cunningham-Obama-Kehinde-Wiley.jpg)",
+            period: "Suvremena umjetnost",
+            medium: "Ulje na lanu",
+            location: "Nacionalna galerija portreta Smithsonian",
+            analysis:
+                "Suvremeni portreti često spajaju realizam s apstraktnim elementima kako bi dočarali složenost. Obamin portret koristi žive boje i slojevite poteze kistom, simbolizirajući raznolikost i promjenu. Neformalna poza i izravan pogled odražavaju moderne liderske vrijednosti pristupačnosti i transparentnosti.",
+        },
+    ],
+};

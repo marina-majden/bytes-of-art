@@ -101,9 +101,14 @@ a.pending {
     @apply animate-pulse;
 }
 
+.primco {
+    color: rgba(105, 70, 255, 1);
+    background-color: rgb(121, 97, 255);
+}
+
 @layer components {
     .maintitle {
-        @apply text-4xl md:text-6xl lg:text-8xl mb-2 font-display leading-[1em] text-teal-400 text-shadow-lg text-shadow-black/50 select-none;
+        @apply text-4xl md:text-5xl lg:text-7xl mb-2 font-display leading-[1em] text-teal-400 text-shadow-lg text-shadow-black/50 select-none;
     }
     .subtitle {
         @apply text-xl md:text-2xl font-normal font-serif text-emerald-100 text-shadow-md text-shadow-black/40 select-none;
@@ -136,7 +141,7 @@ a.pending {
 
 .neumorphic-gradient {
     @apply bg-indigo-950/50 rounded-md shadow-lg backdrop-blur-3xl p-6 transition-all duration-300 ease-in-out;
-    background: linear-gradient(145deg, #3f0c7dbb, #1a0252e1);
+    background: linear-gradient(145deg, rgba(120, 95, 255, 1), #1a0252e1);
     box-shadow:
         8px 8px 10px #0f022d,
         -8px -8px 10px #201043db;
@@ -144,7 +149,7 @@ a.pending {
 }
 .neumorphic-gradient:hover {
     @apply transition-all duration-300 ease-in-out;
-    background: linear-gradient(145deg, #1a0252e1, #3f0c7dbb);
+    background: linear-gradient(145deg, #1a0252e1, rgba(120, 95, 255, 1));
     box-shadow:
         8px 8px 10px #0f022d,
         -8px -8px 10px #201043db;
@@ -271,3 +276,35 @@ img.avatar:hover {
     padding: 0;
 }
 @tailwind utilities;
+/* Dodajte ovo u vašu glavnu .css datoteku (npr. index.css) 
+   zajedno s ostalim 'utility' klasama */
+
+@layer utilities {
+    /* ... (vaše .text-shadow klase su ovdje) ... */
+
+    /* NOVO: Klasa za 3D Tilt Efekt */
+    .image-tilt-effect {
+        /* 'var(--x, 50)' - Koristi varijablu --x, ili 50 ako ne postoji */
+
+        /* Računamo odmak od centra (50) i dijelimo da smanjimo intenzitet */
+        /* Npr. (70 - 50) / 3 = 6.6 stupnjeva */
+        transform: perspective(1000px)
+            rotateY(calc((var(--x, 50) - 50) / 3 * 1deg))
+            rotateX(calc((var(--y, 50) - 50) / -3 * 1deg));
+
+        /* Glatka tranzicija KAD MIŠ ODE (onMouseLeave) */
+        transition: transform 0.4s ease-out;
+    }
+
+    .image-tilt-effect:hover {
+        /* Kada je miš iznad, tranzicija je brža za responzivnost */
+        transition-duration: 0.1s;
+
+        /* Dodajemo blagi 'pop' efekt i sjenu */
+        transform: perspective(1000px)
+            rotateY(calc((var(--x, 50) - 50) / 3 * 1deg))
+            rotateX(calc((var(--y, 50) - 50) / -3 * 1deg)) scale(1.05); /* Lagano povećanje */
+
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+}

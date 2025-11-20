@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router";
 import { locations } from "../data/locationData";
 import type { LocationData } from "../types/city";
 import ImageViewer from "./ImageViewer";
-import PerceptionToggle from "./PerceptionToggle";
+import PerceptionToggle from "./ThemeToggleButton";
 import { ImpressionistOverlay, ExpressionistOverlay } from "./MapOverlays";
 
 type Theme = "impressionism" | "expressionism";
@@ -27,14 +27,13 @@ const CurrentCity: React.FC = () => {
     const location: LocationData = locations[locationId];
     const data = location[currentTheme];
 
-    // --- AŽURIRANA PEDAGOŠKA STILIZACIJA ---
     const impressionismStyles = {
         // Svijetla, prozračna pozadina
         gradient:
             "bg-gradient-to-br from-orange-300 via-stone-300 to-amber-300",
         textColor: "text-gray-900",
         cardBg: "bg-white/40 border-white/50 backdrop-blur-lg",
-        animation: "", // Bez animacije
+        animation: "bg-200% animate-bg-pan",
     };
 
     const expressionismStyles = {

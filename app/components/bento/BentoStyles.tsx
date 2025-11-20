@@ -4,6 +4,8 @@ interface BentoStylesProps {
     glowColor: string;
 }
 
+// FIX: add new
+
 export const BentoStyles: React.FC<BentoStylesProps> = ({ glowColor }) => (
     <style>
         {`
@@ -13,12 +15,12 @@ export const BentoStyles: React.FC<BentoStylesProps> = ({ glowColor }) => (
         --glow-intensity: 0;
         --glow-radius: 200px;
         --glow-color: ${glowColor};
-        --border-color: #392e4e;
+        --border-color: hsla(229, 60%, 51%, 0.6);
         --background-dark: #060010;
-        --white: hsl(0, 0%, 100%);
-        --purple-primary: rgba(105, 70, 255, 1);
-        --purple-glow: rgba(105, 70, 255, 0.2);
-        --purple-border: rgba(105, 70, 255, 0.6);
+        --white: hsl(180, 9%, 97%);
+    --purple-primary: hsla(239, 80%, 60%, 1);
+        --purple-glow:  hsla(239, 100%, 55%, 0.2);
+        --purple-border:  hsla(239, 70%, 49%, 0.6);
       }
       
       .card-responsive {
@@ -65,7 +67,7 @@ export const BentoStyles: React.FC<BentoStylesProps> = ({ glowColor }) => (
       }
       
       .card--border-glow:hover {
-        box-shadow: 0 4px 20px rgba(46, 24, 78, 0.4), 0 0 30px rgba(${glowColor}, 0.2);
+        box-shadow: 0 4px 20px  hsla(249, 100%, 50%, 0.4), 0 0 30px rgba(${glowColor}, 0.2);
       }
       
       .particle::before {

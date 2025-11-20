@@ -46,9 +46,9 @@ const CityMap: React.FC = () => {
     return (
         <div className='flex flex-col items-center justify-center p-4 md:p-8'>
             <header className='text-center mb-12'>
-                <h2 className='text-4xl md:text-5xl font-bold text-neutral-100 mb-3'>
+                <h2 className='text-4xl md:text-5xl font-display font-bold text-neutral-100 mb-3'>
                     Grad »{" "}
-                    <span className='font-alter text-teal-400'>
+                    <span className='font-display text-teal-400'>
                         {" "}
                         dvostruka ekspozicija
                     </span>
