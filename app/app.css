@@ -308,3 +308,22 @@ img.avatar:hover {
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
 }
+
+/* Typewriter cursor styling */
+.typewriter-cursor {
+    border-right: 0.08em solid currentColor;
+    display: inline-block;
+    width: 0.5ch; /* keep a little width so caret looks stable */
+    margin-left: 0.08em;
+}
+
+/* Respect reduced-motion preference when set at document root */
+.reduced-motion .typewriter-cursor {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .typewriter-cursor {
+        display: none;
+    }
+}

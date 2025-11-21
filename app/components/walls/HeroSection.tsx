@@ -1,4 +1,5 @@
 import { ArrowDown } from "lucide-react";
+import Typewriter from "~/components/Typewriter";
 
 export default function HeroSection({ onStart }: { onStart: () => void }) {
     return (
@@ -25,8 +26,12 @@ export default function HeroSection({ onStart }: { onStart: () => void }) {
                     <h1 className='text-6xl md:text-8xl font-thin text-black tracking-widest font-serif italic'>
                         mreže
                     </h1>
-                    <p className='text-gray-500 mt-4 text-sm font-mono lowercase typing-effect'>
-                        tišina ekrana. intimnost. like.
+                    <p className='text-gray-500 mt-4 text-sm font-mono lowercase'>
+                        <Typewriter
+                            texts={["tišina ekrana.", "intimnost.", "like."]}
+                            period={1800}
+                            className="inline-block text-gray-500"
+                        />
                     </p>
                 </div>
             </div>
