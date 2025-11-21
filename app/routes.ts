@@ -16,5 +16,6 @@ export default [
     route("story", "routes/story.tsx"),
     route("time", "routes/time.tsx"),
     route("iceberg", "components/IcebergTheory.tsx"),
-    route("detail", "routes/artwork-detail.tsx"),
+    route("artwork:id", "routes/artwork-detail.tsx"),
+    route("walls", "routes/walls.tsx"),
 ] satisfies RouteConfig;
