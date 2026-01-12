@@ -1,6 +1,6 @@
 import type { TimelineData } from "../types/timeline";
 
-export const artTimelineData: TimelineData = {
+export const artTimelineDataEN: TimelineData = {
     title: "Portraits, Politics & Propaganda",
     description:
         "the art of conveying complex and powerful personalities on painting",
@@ -96,7 +96,7 @@ export const artTimelineData: TimelineData = {
         },
     ],
 };
-export const artTimelineDataHR: TimelineData = {
+export const artTimelineData: TimelineData = {
     title: "Portreti, politika i propaganda",
     description:
         "umjetnost dočaravanja složenih i moćnih osobnosti u slikarstvu",
@@ -109,7 +109,7 @@ export const artTimelineDataHR: TimelineData = {
             description:
                 "Rimska imperijalna propagandna skulptura koja prikazuje Augusta kao vojnog vođu",
             imageUrl:
-                "[https://www.researchgate.net/profile/Tayfun-Hakan/publication/330747316/figure/fig1/AS:733422255353858@1551872900620/Augustus-of-Prima-Porta-Statue-of-Augustus-Caesar-White-marble-Vatican-Museum-1st.png](https://www.researchgate.net/profile/Tayfun-Hakan/publication/330747316/figure/fig1/AS:733422255353858@1551872900620/Augustus-of-Prima-Porta-Statue-of-Augustus-Caesar-White-marble-Vatican-Museum-1st.png)",
+                "https://www.researchgate.net/profile/Tayfun-Hakan/publication/330747316/figure/fig1/AS:733422255353858@1551872900620/Augustus-of-Prima-Porta-Statue-of-Augustus-Caesar-White-marble-Vatican-Museum-1st.png",
             period: "Rimsko Carstvo",
             medium: "Mramorna skulptura",
             location: "Vatikanski muzeji",
@@ -124,7 +124,7 @@ export const artTimelineDataHR: TimelineData = {
             description:
                 "Remek-djelo Hansa Holbeina mlađeg koje prikazuje suptilne liderske kvalitete",
             imageUrl:
-                "[https://upload.wikimedia.org/wikipedia/commons/8/81/Enrique_VIII_de_Inglaterra%2C_por_Hans_Holbein_el_Joven.jpg](https://upload.wikimedia.org/wikipedia/commons/8/81/Enrique_VIII_de_Inglaterra%2C_por_Hans_Holbein_el_Joven.jpg)",
+                "https://upload.wikimedia.org/wikipedia/commons/8/81/Enrique_VIII_de_Inglaterra%2C_por_Hans_Holbein_el_Joven.jpg",
             period: "Renesansa",
             medium: "Ulje na topoli",
             location: "Galleria Nazionale, Palazzo Barberini, Rim",
@@ -139,7 +139,7 @@ export const artTimelineDataHR: TimelineData = {
             description:
                 "Dramatičan prikaz Napoleona kao herojskog vođe Jacques-Louis Davida",
             imageUrl:
-                "[https://www.reproduction-gallery.com/catalogue/uploads/1662522259_large-image_jacques-louis-david-napoleon-crossing-the-alps-lg.webp](https://www.reproduction-gallery.com/catalogue/uploads/1662522259_large-image_jacques-louis-david-napoleon-crossing-the-alps-lg.webp)",
+                "https://www.reproduction-gallery.com/catalogue/uploads/1662522259_large-image_jacques-louis-david-napoleon-crossing-the-alps-lg.webp",
             period: "Neoklasicizam",
             medium: "Ulje na platnu",
             location: "Dvorac Malmaison",
@@ -154,7 +154,7 @@ export const artTimelineDataHR: TimelineData = {
             description:
                 "Jedna od najpoznatijih i najslavnijih slika Sisi koja je učvrstila njezin javni imidž kao legendarne ljepotice.",
             imageUrl:
-                "[https://fashionhistory.fitnyc.edu/wp-content/uploads/2018/05/Elisabeth_of_Austria_by_Franz_Xaver_Winterhalter.jpg](https://fashionhistory.fitnyc.edu/wp-content/uploads/2018/05/Elisabeth_of_Austria_by_Franz_Xaver_Winterhalter.jpg)",
+                "https://fashionhistory.fitnyc.edu/wp-content/uploads/2018/05/Elisabeth_of_Austria_by_Franz_Xaver_Winterhalter.jpg",
             period: "Romantizam",
             medium: "Ulje na platnu",
             location: "Nacionalna galerija portreta Smithsonian",
@@ -169,8 +169,8 @@ export const artTimelineDataHR: TimelineData = {
             description:
                 "Prikaz Lincolna Georgea Petera Alexandera Healyja tijekom Građanskog rata",
             imageUrl:
-                "[https://upload.wikimedia.org/wikipedia/commons/5/51/George_P.A._Healy_-_Abraham_Lincoln_-_Google_Art_Project.jpg](https://upload.wikimedia.org/wikipedia/commons/5/51/George_P.A._Healy_-_Abraham_Lincoln_-_Google_Art_Project.jpg)",
-            period: "Američka umjetnost 19. stoljeća",
+                "https://upload.wikimedia.org/wikipedia/commons/5/51/George_P.A._Healy_-_Abraham_Lincoln_-_Google_Art_Project.jpg",
+            period: "Realizam",
             medium: "Ulje na platnu",
             location: "Bijela kuća",
             analysis:
@@ -181,9 +181,10 @@ export const artTimelineDataHR: TimelineData = {
             year: "2009",
             title: "Službeni portret Baracka Obame",
             artist: "Kehinde Wiley",
-            description: "Vrlo nekonvencionalan pristup predsjedničkom portretiranju",
+            description:
+                "Vrlo nekonvencionalan pristup predsjedničkom portretiranju",
             imageUrl:
-                "[https://media.newyorker.com/photos/5a82035156b75c08a3e5b5b4/master/w_1600%2Cc_limit/Cunningham-Obama-Kehinde-Wiley.jpg](https://media.newyorker.com/photos/5a82035156b75c08a3e5b5b4/master/w_1600%2Cc_limit/Cunningham-Obama-Kehinde-Wiley.jpg)",
+                "https://media.newyorker.com/photos/5a82035156b75c08a3e5b5b4/master/w_1600%2Cc_limit/Cunningham-Obama-Kehinde-Wiley.jpg",
             period: "Suvremena umjetnost",
             medium: "Ulje na lanu",
             location: "Nacionalna galerija portreta Smithsonian",

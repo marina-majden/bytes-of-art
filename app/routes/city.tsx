@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
 import { locations } from "../data/locationData";
-import Stack from "~/components/Stack";
 
 interface PointProps {
     to: string;
@@ -46,12 +45,9 @@ const CityMap: React.FC = () => {
     return (
         <div className='flex flex-col items-center justify-center p-4 md:p-8'>
             <header className='text-center mb-12'>
-                <h2 className='text-4xl md:text-5xl font-display font-bold text-neutral-100 mb-3'>
-                    Grad »{" "}
-                    <span className='font-display text-teal-400'>
-                        {" "}
-                        dvostruka ekspozicija
-                    </span>
+                <h2 className='text-5xl md:text-8xl font-display font-bold text-neutral-100 text-shadow-xl text-shadow-black-xl mb-3'>
+                    <span className='font-display text-teal-400 '>dva </span>
+                    Grad<span className='font-display text-teal-400 '>a</span>
                 </h2>
                 <p className='max-w-2xl mx-auto text-lg md:text-xl text-neutral-200 italic'>
                     Prošetajte po zamišljenom europskom modernističkom gradu
@@ -194,16 +190,18 @@ const CityMap: React.FC = () => {
                     color='bg-yellow-600'
                 />
             </div>
-            {/* Task for students; there is a stack of cards with paintings on them and they have to swipe them left and right (Tinder style), based if the painting is impressionist or expressionist, they have to swipe accordingly */}
-            <div className='container flex flex-col items-center'>
-                <h3 className='font-alter text-4xl font-bold text-center text-teal-500 my-4 p-4'>
-                    Impressionism or expressionism?
-                </h3>
-                <p className='font-italic text-right mb-2 p-2'>
-                    Depending if they are one or the other, carefully look at
-                    the paintings and swipe them accordingly!
-                </p>
-                <Stack />
+            {/* --- Go Back (back to previous page) and Next page (to QuizGame) buttons --- */}
+            <div className='w-full flex justify-evenly mt-4'>
+                <Link
+                    to='/city/theory'
+                    className='bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded'>
+                    Go Back
+                </Link>
+                <Link
+                    to='/city/quiz'
+                    className='bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded'>
+                    Next Page
+                </Link>
             </div>
         </div>
     );

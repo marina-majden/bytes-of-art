@@ -35,12 +35,30 @@ The Crossroads: Represents choices, decisions, turning points, or fate.
 
 The Shadow/Darkness: Represents the unknown, fear, the unconscious, or hidden aspects of the self.
 These symbols are found repeatedly throughout literature, mythology, and art across various cultures and historical periods, representing concepts that are fundamental to the human experience. */
+import { Skull, Heart, CrownIcon } from "lucide-react";
+import { FaWater } from "react-icons/fa";
+import {
+    GiLion,
+    GiRose,
+    GiBeetleShell,
+    GiCrossMark,
+    GiRaven,
+    GiBirchTrees,
+    GiShinyApple,
+    GiRing,
+    GiScarabBeetle,
+    GiBirdMask,
+    GiPeaceDove,
+    GiSnake,
+    GiNinjaVelociraptor,
+} from "react-icons/gi";
 
 import type { Symbol as SymbolType } from "~/types/symbols";
 
 export const symbolsData: Record<string, SymbolType> = {
     skull: {
         name: "Skull",
+        icon: Skull,
         description:
             "Mortality, death, and the vanity of earthly life (Memento Mori)",
         artExamples: [
@@ -74,6 +92,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     dove: {
         name: "Dove",
+        icon: GiPeaceDove,
         description:
             "Peace, purity, and the Holy Spirit in Christian tradition",
         artExamples: [
@@ -107,6 +126,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     serpent: {
         name: "Serpent/Snake",
+        icon: GiSnake,
         description: "Evil, temptation, and deceit in Western tradition",
         artExamples: [
             {
@@ -139,6 +159,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     rose: {
         name: "Rose",
+        icon: GiRose,
         description:
             "A complex symbol representing love, beauty, transience, and secrecy",
         artExamples: [
@@ -187,6 +208,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     conch: {
         name: "Conch Shell",
+        icon: GiBeetleShell,
         description: "Civilization, democracy, and order",
         artExamples: [
             {
@@ -219,6 +241,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     cross: {
         name: "The Cross",
+        icon: GiCrossMark,
         description: "Faith, sacrifice, and redemption in Christianity",
         artExamples: [
             {
@@ -250,6 +273,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     raven: {
         name: "Raven",
+        icon: GiRaven,
         description: "Death, darkness, and ill-omen",
         artExamples: [
             {
@@ -281,6 +305,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     albatross: {
         name: "Albatross",
+        icon: GiBirchTrees,
         description: "A burdensome guilt or a weighty crime",
         artExamples: [
             {
@@ -302,17 +327,19 @@ export const symbolsData: Record<string, SymbolType> = {
             },
         ],
         culturalContext: {
-            sailing_superstition:
+            "sailing superstition":
                 "Sailors believed albatrosses contained souls of dead sailors and killing one brought bad luck",
-            romanticism:
+            "romanticism":
                 "Romantic poets used animal symbols to explore humanity's relationship with nature",
-            christian:
+            "christian":
                 "The albatross functions as a Romantic replacement for Christian symbols of sin and redemption",
-            modern: "Ecological movements reinterpret the albatross as symbol of human destruction of nature",
+            "modern":
+                "Ecological movements reinterpret the albatross as symbol of human destruction of nature",
         },
     },
     apple: {
         name: "Apple",
+        icon: GiShinyApple,
         description: "Forbidden knowledge, temptation, and sin",
         artExamples: [
             {
@@ -344,6 +371,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     heart: {
         name: "Heart",
+        icon: Heart,
         description: "Love, affection, and emotion",
         artExamples: [
             {
@@ -376,6 +404,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     light: {
         name: "Light",
+        icon: GiNinjaVelociraptor,
         description: "Knowledge, hope, and enlightenment",
         artExamples: [
             {
@@ -408,6 +437,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     ring: {
         name: "One Ring",
+        icon: GiRing,
         description: "Absolute power, corruption, and obsession",
         artExamples: [
             {
@@ -438,6 +468,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     scarlet_letter: {
         name: "Scarlet Letter 'A'",
+        icon: GiScarabBeetle,
         description: "Adultery, and later, Ableness",
         artExamples: [
             {
@@ -470,6 +501,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     crown: {
         name: "Crown",
+        icon: CrownIcon,
         description: "Authority, royal power, and victory",
         artExamples: [
             {
@@ -502,6 +534,7 @@ export const symbolsData: Record<string, SymbolType> = {
     },
     mockingjay: {
         name: "Mockingjay Pin",
+        icon: GiBirdMask,
         description: "Rebellion, defiance, and hope",
         artExamples: [
             {
@@ -523,16 +556,19 @@ export const symbolsData: Record<string, SymbolType> = {
             },
         ],
         culturalContext: {
-            cold_war:
+            "cold war":
                 "Cold War literature used hybrid creatures as metaphors for genetic engineering anxieties",
-            roman: "Ancient slave rebellions like Spartacus used symbols to unite disparate groups",
-            revolutionary:
+            "roman":
+                "Ancient slave rebellions like Spartacus used symbols to unite disparate groups",
+            "revolutionary":
                 "American and French revolutions developed symbolic pins and cockades as identity markers",
-            modern: "Digital activism adapts physical symbols like pins for social media profile pictures and avatars",
+            "modern":
+                "Digital activism adapts physical symbols like pins for social media profile pictures and avatars",
         },
     },
     water: {
         name: "Water",
+        icon: FaWater,
         description:
             "Represents life, purification, transformation, and the unconscious",
         artExamples: [

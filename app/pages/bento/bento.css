@@ -1,0 +1,66 @@
+/* bento.css */
+.bento-grid {
+    /* Varijable koje ćemo ažurirati JS-om na razini containera */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --spotlight-color: rgba(121, 97, 255, 0.6);
+}
+
+.bento-card {
+    position: relative;
+    /* Početne vrijednosti da ne bude grešaka prije prvog pokreta */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+/* Spotlight efekt */
+.bento-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Smanjio sam radijus na 600px da bude precizniji */
+    background: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y),
+        rgba(121, 97, 225, 0.25),
+        transparent 40%
+    );
+    opacity: 0; /* SKRIVENO po defaultu */
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* PRIKAŽI samo kad je miš iznad TE kartice */
+.bento-card:hover::before {
+    opacity: 1;
+}
+
+/* Border glow (opcionalno, ako želiš i rub da svijetli) */
+.bento-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+        400px circle at var(--mouse-x) var(--mouse-y),
+        rgba(121, 97, 255, 0.5),
+        transparent 40%
+    );
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    /*     -webkit-mask-composite: xor; */
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 4;
+    opacity: 0; /* I ovo skrivamo */
+    transition: opacity 0.3s ease;
+}
+
+.bento-card:hover::after {
+    opacity: 1;
+}

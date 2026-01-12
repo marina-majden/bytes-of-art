@@ -1,42 +1,16 @@
-export type Cultural =
-    | "mesopotamian"
-    | "creation_myths"
-    | "christian"
-    | "puritan"
-    | "greco-roman"
-    | "prechristian"
-    | "hinduism"
-    | "buddhist"
-    | "ancient"
-    | "roman"
-    | "caribbean"
-    | "norse"
-    | "celtic"
-    | "medieval"
-    | "native_american"
-    | "platonic"
-    | "zoroastrian"
-    | "enlightenment"
-    | "romanticism"
-    | "renaissance"
-    | "modern"
-    | "postmodern"
-    | "norse"
-    | "celtic"
-    | "medieval"
-    | "native_american"
-    | "platonic"
-    | "feminism"
-    | "cold war"
-    | "victorian"
-    | "sailing superstition"
-    | "classical"
-    | "psychological"
-    | "field"
-    | "mesoamerican"
-    | "imperial"
-    | "political"
-    | "revolutionary";
+// Remove duplicates and organize
+export type Cultural = 
+    | "ancient" | "medieval" | "renaissance" | "modern" | "postmodern"
+    | "classical" | "greco-roman" | "roman" | "mesopotamian"
+    | "christian" | "puritan" | "prechristian" | "zoroastrian"
+    | "hinduism" | "buddhist" | "mesoamerican"
+    | "norse" | "celtic" | "native_american"
+    | "enlightenment" | "romanticism" | "victorian"
+    | "feminism" | "political" | "revolutionary" | "cold war"
+    | "creation_myths" | "field" | "psychological"
+    | "sailing_superstition" | "caribbean" | "imperial" | "platonic";
+
+// Remove unused interfaces or export from separate file
 
 export interface symbolPage {
     title: string;
@@ -45,6 +19,7 @@ export interface symbolPage {
 
 export interface Symbol {
     name: string;
+    icon: React.ElementType;
     description: string;
     artExamples: Array<{
         title: string;

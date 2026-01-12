@@ -21,6 +21,10 @@ export const links: Route.LinksFunction = () => [
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
     },
+    {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Anton+SC&family=Gowun+Dodum&family=League+Spartan:wght@100..900&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Saira+Stencil+One&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Ysabeau+SC:wght@1..1000&display=swap",
+    },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { NarrativeState } from "../types/story";
-import NarrativeSelection from "../components/story/NarrativeSelection";
-import SceneViewer from "../components/story/SceneViewer";
-import Epilogue from "../components/story/Epilogue";
+import NarrativeSelection from "../pages/story/NarrativeSelection";
+import SceneViewer from "../pages/story/SceneViewer";
+import Epilogue from "../pages/story/Epilogue";
 
 export default function StoryNarrative() {
     const [timePhase, setTimePhase] = useState(0);

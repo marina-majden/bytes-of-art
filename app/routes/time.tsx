@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InteractiveImage from "~/components/InteractiveImage";
-import ImageViewer from "~/components/ImageViewer";
+import ImageViewer from "~/pages/city/ImageViewer";
 
 // Tipovi za naše narativne izbore
 type Genre = "noir" | "romance" | "drama";

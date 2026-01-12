@@ -1,7 +1,41 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { symbolsData } from "../data/symbolsData";
+import NeonTicket from "~/components/NeonTicket";
 
 type SymbolKey = keyof typeof symbolsData;
+
+export const SymbolTabs = ({ activeTab, setActiveTab }: { 
+    activeTab: "examples" | "meaning", 
+    setActiveTab: (tab: "examples" | "meaning") => void 
+}) => (
+    <div className='flex border-b border-gray-200 mb-6'>
+        {(["examples", "meaning"] as const).map((tab) => (
+            <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-2 font-medium capitalize transition-colors ${
+                    activeTab === tab
+                        ? "text-teal-600 border-b-2 border-teal-600"
+                        : "text-neutral-300 hover:text-neutral-400"
+                }`}>
+                {tab === "examples" ? "Examples" : "Meaning"}
+            </button>
+        ))}
+    </div>
+);
+
+// Extract examples display
+export const ExamplesDisplay = ({ symbol }: { symbol: SymbolKey }) => (
+    <div className='animate-fade-in-scale'>
+        <h3 className='text-2xl font-bold text-neutral-200 mb-4'>
+            Side-by-Side Comparison
+        </h3>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            {/* Extract ArtColumn and LiteratureColumn components further */}
+        </div>
+    </div>
+);
+
 
 export default function SymbolismExplorer() {
     const [selectedSymbol, setSelectedSymbol] = useState<SymbolKey | null>(
@@ -12,7 +46,17 @@ export default function SymbolismExplorer() {
         "examples"
     );
 
-    const symbolsList = Object.keys(symbolsData) as SymbolKey[];
+    // Memoize the symbols list
+    const symbolsList = useMemo(() => 
+        Object.keys(symbolsData) as SymbolKey[], 
+        []
+    );
+
+    // Memoize the selected symbol data
+    const selectedSymbolData = useMemo(() => 
+        selectedSymbol ? symbolsData[selectedSymbol] : null,
+        [selectedSymbol]
+    );
 
     const handleSymbolSelect = (symbol: SymbolKey) => {
         setSelectedSymbol(symbol);
@@ -20,7 +64,7 @@ export default function SymbolismExplorer() {
     };
 
     return (
-        <div className='w-full min-h-screen'>
+        <div className=' w-full min-h-screen'>
             <div className='w-full max-w-6xl mx-auto px-4 py-8'>
                 {/* Header */}
                 <div className='text-center mb-12 px-4 pt-8'>
@@ -36,30 +80,38 @@ export default function SymbolismExplorer() {
                 {/* Main Content Grid */}
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-6'>
                     {/* Symbols Sidebar */}
-                    <div className='lg:col-span-1 rounded-xl shadow-lg p-6 neumorphic'>
+                    <div
+                        className='lg:col-span-1  bg-gradient-to-r from-[#141e30] to-[hsl(212,41%,20%)]
+         rounded-[15px] text-neutral-100
+        shadow-[5px_10px_50px_rgba(0,0,0,0.7),-5px_0px_250px_rgba(0,0,0,0.7)] p-6'>
                         <h2 className='text-2xl font-bold text-neutral-200 mb-4'>
                             Symbols
                         </h2>
                         <div className='space-y-2'>
-                            {symbolsList.map((symbol) => (
-                                <button
-                                    key={symbol}
-                                    onClick={() => handleSymbolSelect(symbol)}
-                                    className={`w-full text-left px-4 py-3 cursor-pointer neumorphic-tw hover:neumorphic-tw-h transition-all duration-300 ease-in-out ${
-                                        selectedSymbol === symbol
-                                            ? " text-neutral-100"
-                                            : " text-neutral-300"
-                                    }`}>
-                                    <span className='font-semibold capitalize'>
-                                        {symbol}
-                                    </span>
-                                </button>
-                            ))}
+                            {symbolsList.map((symbol) => {
+                                const IconComponent = symbolsData[symbol].icon;
+                                return (
+                                    <NeonTicket
+                                        key={symbol}
+                                        text={symbolsData[symbol].name}
+                                        icon={<IconComponent />}
+                                        onClick={() => handleSymbolSelect(symbol)}
+                                        className={`font-ysabeau  ${
+                                            selectedSymbol === symbol
+                                                ? " text-indigo-500"
+                                                : " text-neutral-300"
+                                        }`}></NeonTicket>
+                                );
+                            })}
                         </div>
                     </div>
 
                     {/* Content Area */}
-                    <div className='lg:col-span-3 rounded-xl shadow-lg p-6 text-neutral-100 neumorphic'>
+                    <div
+                        className='lg:col-span-3  bg-gradient-to-r from-[#141e30] to-[#243b55]
+         rounded-[15px] text-neutral-100
+        shadow-[5px_10px_50px_rgba(0,0,0,0.7),-5px_0px_250px_rgba(0,0,0,0.7)] p-6 z-50
+    '>
                         {selectedSymbol ? (
                             // 1. BLOK ZA ODABRANI SIMBOL
                             <div>

@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import HeroSection from "~/components/walls/HeroSection";
-import StreetArtGallery from "~/components/walls/StreetArtGallery";
-import InstaPoetry from "~/components/walls/InstaPoetry";
-import CreativeStudio from "~/components/walls/CreativeStudio";
+import HeroSection from "~/pages/walls/HeroSection";
+import StreetArtGallery from "~/pages/walls/StreetArtGallery";
+import InstaPoetry from "~/pages/walls/InstaPoetry";
+import CreativeStudio from "~/pages/walls/CreativeStudio";
 
 export default function WallsLesson() {
     // Refs za glatko skrolanje između modula

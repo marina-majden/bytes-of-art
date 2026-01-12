@@ -1,4 +1,4 @@
-// layout.tsx
+import "./patterns.css";
 import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router";
 import { IoMenu, IoClose } from "react-icons/io5";
@@ -25,16 +25,18 @@ export default function Layout() {
     }, [isMobileMenuOpen]);
 
     return (
-        <div className='max-w-screen p-0 m-0'>
+        <div className='hex-container max-w-screen p-0 m-0 '>
             <header className='flex items-center justify-between p-4 bg-transparent'>
-                <div className='logo header-logo text-lg font-display font-semibold flex flex-row items-baseline-last gap-0'>
-                    <span>Lit Art 🔥</span>
+                <div className='logo header-logo text-5xl text-secondary text-shadow-black text-shadow-lg font-semibold flex flex-row items-baseline-last gap-0 z-50'>
+                    {/*<span className='font-sansation'>LitArt</span> <span className='font-ysabeau'>LitArt</span>*/}{" "}
+                    <span className='font-anton'>LitArt</span>
+                    {/**/}
                 </div>
 
                 {/* Mobile menu button */}
                 <button
                     type='button'
-                    className=' p-2 text-2xl text-teal-400 hover:text-teal-300 z-50'
+                    className=' p-2 text-2xl text-primary hover:text- z-50'
                     aria-label='Open menu'
                     aria-expanded='true'
                     onClick={handleToggleMobileMenu}>
@@ -52,13 +54,13 @@ export default function Layout() {
                 <Outlet />
             </main>
 
-            <footer className='w-full'>
+            <footer className='w-full text-gray-500'>
                 <p className='text-center text-sm p-6 mx-auto'>
-                    <span className='text-teal-500 font-bold'>
+                    <span className='text-cyan-600 font-bold'>
                         Bytes of Art
                     </span>{" "}
                     <FaCopyright className='inline' /> Marina Majdenić{" "}
-                    <span className='text-xs text-blue-500 font-bold'>
+                    <span className='text-xs text-indigo-800 font-bold'>
                         2025
                     </span>{" "}
                     All rights reserved.

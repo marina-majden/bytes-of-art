@@ -1,4 +1,4 @@
-import MagicBento from "../components/bento/index";
+import MagicBento from "../pages/bento/MagicBento";
 
 export default function HomePage() {
     return (

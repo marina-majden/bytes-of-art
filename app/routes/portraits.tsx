@@ -1,7 +1,7 @@
 import type { TimelineData, TimelineItem } from "../types/timeline";
-import TimelineNode from "../components/TimelineNode";
-import TimelineAnalysis from "../components/TimelineAnalysis";
-import ImageDialog from "../components/ImageDialog";
+import TimelineNode from "../pages/portraits/TimelineNode";
+import TimelineAnalysis from "../pages/portraits/TimelineAnalysis";
+import ImageDialog from "../pages/portraits/ImageDialog";
 import { useState } from "react";
 import { artTimelineData } from "~/data/artTimelineData";
 

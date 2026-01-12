@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Dosis:wght@200..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Phudu:wght@300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Gowun+Dodum&family=League+Spartan:wght@100..900&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Saira+Stencil+One&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Ysabeau+SC:wght@1..1000&display=swap");
 
 @import "tailwindcss";
 
@@ -51,7 +52,93 @@
         transform: translateX(100%);
     }
 }
+@keyframes scrolldown-anim {
+    0% {
+        opacity: 0;
+        height: 6px;
+    }
+    40% {
+        opacity: 1;
+        height: 10px;
+    }
+    80% {
+        transform: translate(0, 20px);
+        height: 10px;
+        opacity: 0;
+    }
+    100% {
+        height: 3px;
+        opacity: 0;
+    }
+}
+@keyframes pulseChevron {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
 
+/* Fade in from top */
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        top: calc(var(--city-radius));
+    }
+
+    100% {
+        opacity: 1;
+        top: calc(var(--city-radius) + var(--city-pin-size-font) / 2);
+    }
+}
+
+/* Grow from the ground */
+@keyframes grow {
+    0% {
+        transform: translate(0, 200%);
+    }
+
+    10% {
+        transform: translate(5%, 180%);
+    }
+
+    20% {
+        transform: translate(-10%, 160%);
+    }
+
+    30% {
+        transform: translate(15%, 140%);
+    }
+
+    40% {
+        transform: translate(-5%, 120%);
+    }
+
+    50% {
+        transform: translate(10%, 100%);
+    }
+
+    60% {
+        transform: translate(-15%, 80%);
+    }
+
+    70% {
+        transform: translate(5%, 60%);
+    }
+
+    80% {
+        transform: translate(0, 40%);
+    }
+
+    90% {
+        transform: translate(0, 20%);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
 @theme {
     --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
     --font-serif: Dosis, serif;
@@ -65,8 +152,52 @@
     --animate-float-circle: "float-circle 3s ease infinite";
     --animate-float-slow: "float-slow 6s ease-in-out infinite";
     --animate-pan-slow: "pan-slow 30s linear infinite";
+    --animate-scrolldown-anim: "scrolldown-anim 2s infinite";
+    --animate-pulseChevron: "pulseChevron 1s infinite";
 }
 
+@theme {
+    --font-anton: "Anton SC", sans-serif;
+    --font-gowun: "Gowun Dodum", sans-serif;
+    --font-league: "League Spartan", sans-serif;
+    --font-roboto: "Roboto Flex", sans-serif;
+    --font-saira: "Saira Stencil One", sans-serif;
+    --font-sansation: "Sansation", sans-serif;
+    --font-ysabeau: "Ysabeau SC", sans-serif;
+
+    --color-primary: #699699;
+    --color-secondary: #666996;
+    --color-neutral: #668096;
+    --color-dark: #1b1b1b;
+    --color-code: #699699;
+    --gradient-metallic: linear-gradient(
+        to bottom right,
+        from hsl(180, 25%, 81%) via hsl(208, 16%, 80%) to hsl(236, 37%, 79%)
+    );
+    --color-metallic-dark: linear-gradient(
+        to bottom right,
+        from #315959 via #354b5f to #35375f
+    );
+}
+/* @theme variant {
+    --color-primary: hsl(180, 25%, 59%);
+    --color-secondary: hsl(236, 37%, 63%);
+    --color-neutral: hsl(208, 16%, 64%);
+    --color-dark: #1b1b1b;
+    --color-code: hsl(184, 19%, 51%);
+    --color-metallic: linear-gradient(
+        to bottom right,
+        from #315959 via #354b5f to #35375f
+    );
+} */
+
+body {
+    font-size: clamp(14px, 10px + 1.33cqw, 20px);
+    background-color: var(--color-metallic);
+    color: var(--color-dark);
+    font-family: var(--font-roboto);
+    font-weight: 400;
+}
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -75,11 +206,11 @@ html {
 }
 
 body {
-    --s: 129px; /* control the size*/
-    --c1: rgb(33, 27, 44);
+    --s: 150px; /* control the size*/
+    --c1: #17151b;
     --c2: #001219;
 
-    --_g: #0000 52%, var(--c1) 54% 57%, #0000 59%;
+    --_g: #10689cdf 52%, var(--c1) 54% 57%, #0000 59%;
     background:
         radial-gradient(farthest-side at -33.33% 50%, var(--_g)) 0
             calc(var(--s) / 2),
@@ -101,29 +232,96 @@ a.pending {
     @apply animate-pulse;
 }
 
+.league-spartan {
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-flex-variable {
+    font-family: "Roboto Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "wdth" 100,
+        "GRAD" 0,
+        "XOPQ" 96,
+        "XTRA" 468,
+        "YOPQ" 79,
+        "YTAS" 750,
+        "YTDE" -203,
+        "YTFI" 738,
+        "YTLC" 514,
+        "YTUC" 712;
+}
+
+.sansation-light {
+    font-family: "Sansation", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.sansation-regular {
+    font-family: "Sansation", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sansation-bold {
+    font-family: "Sansation", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.sansation-light-italic {
+    font-family: "Sansation", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.sansation-regular-italic {
+    font-family: "Sansation", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.sansation-bold-italic {
+    font-family: "Sansation", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
 .primco {
     color: rgba(105, 70, 255, 1);
     background-color: rgb(121, 97, 255);
 }
 
+*,
+*::before,
+*::after {
+    user-select: none;
+}
 @layer components {
     .maintitle {
-        @apply text-4xl md:text-5xl lg:text-7xl mb-2 font-display leading-[1em] text-teal-400 text-shadow-lg text-shadow-black/50 select-none;
+        @apply text-4xl md:text-5xl lg:text-7xl mb-2 font-display leading-[1em] text-cyan-600 text-shadow-lg text-shadow-black/50 select-none z-50;
     }
     .subtitle {
-        @apply text-xl md:text-2xl font-normal font-serif text-emerald-100 text-shadow-md text-shadow-black/40 select-none;
+        @apply text-xl md:text-2xl font-normal font-alter text-indigo-400 text-shadow-md text-shadow-black/40 select-none z-50;
     }
     .description {
-        @apply md:text-xl font-sans font-normal indent-3 text-neutral-200 text-shadow-md text-shadow-black/30 select-none;
+        @apply md:text-xl font-alter font-normal indent-3 text-neutral text-shadow-md text-shadow-black/30 select-none;
     }
     .tags {
-        @apply text-sm md:text-base font-tags font-semibold uppercase tracking-widest text-teal-100 text-shadow-md text-shadow-black/30;
+        @apply text-sm md:text-base font-tags font-semibold uppercase tracking-widest text-primary text-shadow-md text-shadow-black/30;
     }
     .paragraph {
-        @apply text-base md:text-lg font-sans font-thin mx-auto leading-relaxed text-neutral-100 text-shadow-md text-shadow-black/20 select-none;
+        @apply text-base md:text-lg font-sans font-light mx-auto leading-relaxed text-neutral text-shadow-md text-shadow-black/20 select-none;
     }
     .navlink {
-        @apply px-3 py-2 text-lg md:text-2xl lg:text-3xl font-display font-semibold tracking-wide text-indigo-500 hover:text-indigo-400 active:text-blue-400 text-shadow-lg text-shadow-black/40 transition-all duration-200 ease-in-out select-none;
+        @apply px-3 py-2 text-lg md:text-2xl lg:text-3xl font-tags font-semibold tracking-wide text-secondary hover:text-indigo-400 active:text-primary text-shadow-lg text-shadow-black/40 transition-all duration-200 ease-in-out select-none;
     }
 }
 .neumorphic-tw {
@@ -173,7 +371,13 @@ a.pending {
     color: #35a699;
     background-color: #eee8d2;
 }
-
+.neumorphic-card {
+    border-radius: 8px;
+    background: #e0e0e0;
+    box-shadow:
+        14px 14px 32px #c3c3c3,
+        -14px -14px 32px #fdfdfd;
+}
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Oprez: Ime klase je 'line-clamp-2', ali je vrijednost 3 */
@@ -181,65 +385,18 @@ a.pending {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
-img.zoom-normal {
-    /* the coordinate of the zoom */
-    --x: 50%;
-    --y: 50%;
-    --zoom: 1;
-    transform: scale(var(--zoom));
+/* only images with this class will be interactive */
+.interactive-zoom {
     transform-origin: var(--x) var(--y);
-    clip-path: inset(
-        calc((1 - 1 / var(--zoom)) * (var(--y)))
-            calc((1 - 1 / var(--zoom)) * (100% - var(--x)))
-            calc((1 - 1 / var(--zoom)) * (100% - var(--y)))
-            calc((1 - 1 / var(--zoom)) * (var(--x)))
-    );
-    cursor: crosshair;
-}
-img.zoom-hover {
-    --x: 50%;
-    --y: 50%;
-    --zoom: 2;
-    transform: scale(var(--zoom));
-    transform-origin: var(--x) var(--y);
-    clip-path: inset(
-        calc((1 - 1 / var(--zoom)) * (var(--y)))
-            calc((1 - 1 / var(--zoom)) * (100% - var(--x)))
-            calc((1 - 1 / var(--zoom)) * (100% - var(--y)))
-            calc((1 - 1 / var(--zoom)) * (var(--x)))
-    );
-    cursor: crosshair;
+    transition: transform 0.12s ease-out;
+    will-change: transform;
+    cursor: zoom-in;
 }
 
-img.zoom-end {
-    --zoom: 1; /* control the zoom level */
-    /* the coordinate of the zoom */
-    --x: 50%;
-    --y: 50%;
-    transform: scale(var(--zoom));
-    transform-origin: var(--x) var(--y);
-    clip-path: inset(
-        calc((1 - 1 / var(--zoom)) * (var(--y)))
-            calc((1 - 1 / var(--zoom)) * (100% - var(--x)))
-            calc((1 - 1 / var(--zoom)) * (100% - var(--y)))
-            calc((1 - 1 / var(--zoom)) * (var(--x)))
-    );
-    cursor: crosshair;
-}
-img.zoom-start {
-    --zoom: 2;
-    --x: 10%;
-    --y: 10%;
-    transform: scale(var(--zoom));
-    transform-origin: var(--x) var(--y);
-    clip-path: inset(
-        calc((1 - 1 / var(--zoom)) * (var(--y)))
-            calc((1 - 1 / var(--zoom)) * (100% - var(--x)))
-            calc((1 - 1 / var(--zoom)) * (100% - var(--y)))
-            calc((1 - 1 / var(--zoom)) * (var(--x)))
-    );
-    cursor: pointer;
+/* apply actual zoom when the modifier class is present */
+.interactive-zoom.zoomed {
+    transform: scale(2); /* 200% */
+    cursor: zoom-out;
 }
 div.frame {
     white-space: nowrap;
@@ -325,5 +482,449 @@ img.avatar:hover {
 @media (prefers-reduced-motion: reduce) {
     .typewriter-cursor {
         display: none;
+    }
+}
+
+/* From Uiverse.io by Cobp */
+.books-container {
+    --color-0: #fff;
+    --color-1: #111;
+    --color-2: #131312;
+    --color-3: #141925;
+    --color-4: #666996;
+    --color-5: #cdd28c;
+    --color-6: #669696;
+    --color-7: #668096;
+    --color-8: #353758;
+    --color-9: #315959;
+    height: 100%;
+    background-color: var(--color-1);
+    background-image:
+        linear-gradient(
+            to top,
+            var(--color-2) 5%,
+            var(--color-1) 6%,
+            var(--color-1) 7%,
+            transparent 7%
+        ),
+        linear-gradient(to bottom, var(--color-1) 30%, transparent 80%),
+        linear-gradient(
+            to right,
+            var(--color-2),
+            var(--color-4) 5%,
+            transparent 5%
+        ),
+        linear-gradient(
+            to right,
+            transparent 6%,
+            var(--color-2) 6%,
+            var(--color-4) 9%,
+            transparent 9%
+        ),
+        linear-gradient(
+            to right,
+            transparent 27%,
+            var(--color-2) 27%,
+            var(--color-4) 34%,
+            transparent 34%
+        ),
+        linear-gradient(
+            to right,
+            transparent 51%,
+            var(--color-2) 51%,
+            var(--color-4) 57%,
+            transparent 57%
+        ),
+        linear-gradient(to bottom, var(--color-1) 35%, transparent 35%),
+        linear-gradient(
+            to right,
+            transparent 42%,
+            var(--color-2) 42%,
+            var(--color-4) 44%,
+            transparent 44%
+        ),
+        linear-gradient(
+            to right,
+            transparent 45%,
+            var(--color-2) 45%,
+            var(--color-4) 47%,
+            transparent 47%
+        ),
+        linear-gradient(
+            to right,
+            transparent 48%,
+            var(--color-2) 48%,
+            var(--color-4) 50%,
+            transparent 50%
+        ),
+        linear-gradient(
+            to right,
+            transparent 87%,
+            var(--color-2) 87%,
+            var(--color-4) 91%,
+            transparent 91%
+        ),
+        linear-gradient(to bottom, var(--color-1) 37.5%, transparent 37.5%),
+        linear-gradient(
+            to right,
+            transparent 14%,
+            var(--color-2) 14%,
+            var(--color-4) 20%,
+            transparent 20%
+        ),
+        linear-gradient(to bottom, var(--color-1) 40%, transparent 40%),
+        linear-gradient(
+            to right,
+            transparent 10%,
+            var(--color-2) 10%,
+            var(--color-4) 13%,
+            transparent 13%
+        ),
+        linear-gradient(
+            to right,
+            transparent 21%,
+            var(--color-2) 21%,
+            #1a1a1a 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            to right,
+            transparent 58%,
+            var(--color-2) 58%,
+            var(--color-4) 64%,
+            transparent 64%
+        ),
+        linear-gradient(
+            to right,
+            transparent 92%,
+            var(--color-2) 92%,
+            var(--color-4) 95%,
+            transparent 95%
+        ),
+        linear-gradient(to bottom, var(--color-1) 48%, transparent 48%),
+        linear-gradient(
+            to right,
+            transparent 96%,
+            var(--color-2) 96%,
+            #1a1a1a 99%,
+            transparent 99%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 68.5%,
+            transparent 76%,
+            var(--color-1) 76%,
+            var(--color-1) 77.5%,
+            transparent 77.5%,
+            transparent 86%,
+            var(--color-1) 86%,
+            var(--color-1) 87.5%,
+            transparent 87.5%
+        ),
+        linear-gradient(
+            to right,
+            transparent 35%,
+            var(--color-2) 35%,
+            var(--color-4) 41%,
+            transparent 41%
+        ),
+        linear-gradient(to bottom, var(--color-1) 68%, transparent 68%),
+        linear-gradient(
+            to right,
+            transparent 78%,
+            var(--color-3) 78%,
+            var(--color-3) 80%,
+            transparent 80%,
+            transparent 82%,
+            var(--color-3) 82%,
+            var(--color-3) 83%,
+            transparent 83%
+        ),
+        linear-gradient(
+            to right,
+            transparent 66%,
+            var(--color-2) 66%,
+            var(--color-4) 85%,
+            transparent 85%
+        );
+    background-size: 300px 150px;
+    background-position: center top;
+}
+
+.books-container:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-1);
+    background-image:
+        linear-gradient(
+            to top,
+            var(--color-5) 5%,
+            var(--color-1) 6%,
+            var(--color-1) 7%,
+            transparent 7%
+        ),
+        linear-gradient(to bottom, var(--color-1) 30%, transparent 30%),
+        linear-gradient(
+            to right,
+            var(--color-6),
+            var(--color-7) 5%,
+            transparent 5%
+        ),
+        linear-gradient(
+            to right,
+            transparent 6%,
+            var(--color-8) 6%,
+            var(--color-9) 9%,
+            transparent 9%
+        ),
+        linear-gradient(
+            to right,
+            transparent 27%,
+            #2f686b 27%,
+            #1f4748 34%,
+            transparent 34%
+        ),
+        linear-gradient(
+            to right,
+            transparent 51%,
+            #fa8072 51%,
+            #f85441 57%,
+            transparent 57%
+        ),
+        linear-gradient(to bottom, var(--color-1) 35%, transparent 35%),
+        linear-gradient(
+            to right,
+            transparent 42%,
+            #008080 42%,
+            #004d4d 44%,
+            transparent 44%
+        ),
+        linear-gradient(
+            to right,
+            transparent 45%,
+            #008080 45%,
+            #004d4d 47%,
+            transparent 47%
+        ),
+        linear-gradient(
+            to right,
+            transparent 48%,
+            #008080 48%,
+            #004d4d 50%,
+            transparent 50%
+        ),
+        linear-gradient(
+            to right,
+            transparent 87%,
+            #789 87%,
+            #4f5d6a 91%,
+            transparent 91%
+        ),
+        linear-gradient(to bottom, var(--color-1) 37.5%, transparent 37.5%),
+        linear-gradient(
+            to right,
+            transparent 14%,
+            #458bae 14%,
+            #166c94 20%,
+            transparent 20%
+        ),
+        linear-gradient(to bottom, var(--color-1) 40%, transparent 40%),
+        linear-gradient(
+            to right,
+            transparent 10%,
+            #221ab6 10%,
+            #241b53 13%,
+            transparent 13%
+        ),
+        linear-gradient(
+            to right,
+            transparent 21%,
+            #8b134d 21%,
+            #5e0d42 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            to right,
+            transparent 58%,
+            #8b137f 58%,
+            #4d0d5e 64%,
+            transparent 64%
+        ),
+        linear-gradient(
+            to right,
+            transparent 92%,
+            #2f4f4f 92%,
+            #1c2f2f 95%,
+            transparent 95%
+        ),
+        linear-gradient(to bottom, var(--color-1) 48%, transparent 48%),
+        linear-gradient(
+            to right,
+            transparent 96%,
+            #2f4f4f 96%,
+            #1c2f2f 99%,
+            transparent 99%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 68.5%,
+            transparent 76%,
+            var(--color-1) 76%,
+            var(--color-1) 77.5%,
+            transparent 77.5%,
+            transparent 86%,
+            var(--color-1) 86%,
+            var(--color-1) 87.5%,
+            transparent 87.5%
+        ),
+        linear-gradient(
+            to right,
+            transparent 35%,
+            #cd5c5c 35%,
+            #bc3a3a 41%,
+            transparent 41%
+        ),
+        linear-gradient(to bottom, var(--color-1) 68%, transparent 68%),
+        linear-gradient(
+            to right,
+            transparent 78%,
+            #bc8f8f 78%,
+            #bc8f8f 80%,
+            transparent 80%,
+            transparent 82%,
+            #bc8f8f 82%,
+            #bc8f8f 83%,
+            transparent 83%
+        ),
+        linear-gradient(
+            to right,
+            transparent 66%,
+            #242755 66%,
+            #171849 85%,
+            transparent 85%
+        );
+    background-size: 300px 150px;
+    background-position: center top;
+    clip-path: circle(150px at center center);
+    animation: flashlight 20s ease infinite;
+}
+
+.books-container:after {
+    content: "";
+    width: 25px;
+    height: 10px;
+    position: absolute;
+    left: calc(50% + 59px);
+    bottom: 100px;
+    background-repeat: no-repeat;
+    background-image:
+        radial-gradient(circle, #fff 50%, transparent 50%),
+        radial-gradient(circle, #fff 50%, transparent 50%);
+    background-size: 10px 10px;
+    background-position:
+        left center,
+        right center;
+    animation: eyes 20s infinite;
+}
+
+@keyframes flashlight {
+    0% {
+        clip-path: circle(150px at -25% 10%);
+    }
+
+    38% {
+        clip-path: circle(150px at 60% 20%);
+    }
+
+    39% {
+        opacity: 1;
+        clip-path: circle(150px at 60% 86%);
+    }
+
+    40% {
+        opacity: 0;
+        clip-path: circle(150px at 60% 86%);
+    }
+
+    41% {
+        opacity: 1;
+        clip-path: circle(150px at 60% 86%);
+    }
+
+    42% {
+        opacity: 0;
+        clip-path: circle(150px at 60% 86%);
+    }
+
+    54% {
+        opacity: 0;
+        clip-path: circle(150px at 60% 86%);
+    }
+
+    55% {
+        opacity: 1;
+        clip-path: circle(150px at 60% 86%);
+    }
+
+    59% {
+        opacity: 1;
+        clip-path: circle(150px at 60% 86%);
+    }
+
+    64% {
+        clip-path: circle(150px at 45% 78%);
+    }
+
+    68% {
+        clip-path: circle(150px at 85% 89%);
+    }
+
+    72% {
+        clip-path: circle(150px at 60% 86%);
+    }
+
+    74% {
+        clip-path: circle(150px at 60% 86%);
+    }
+
+    100% {
+        clip-path: circle(150px at 150% 50%);
+    }
+}
+
+@keyframes eyes {
+    0%,
+    38% {
+        opacity: 0;
+    }
+
+    39%,
+    41% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+    40% {
+        transform: scaleY(0);
+        filter: none;
+        background-image:
+            radial-gradient(circle, #fff 50%, transparent 50%),
+            radial-gradient(circle, #fff 50%, transparent 50%);
+    }
+
+    41% {
+        transform: scaleY(1);
+        background-image:
+            radial-gradient(circle, #ff0000 50%, transparent 50%),
+            radial-gradient(circle, #ff0000 50%, transparent 50%);
+        filter: drop-shadow(0 0 4px #ff8686);
+    }
+
+    42%,
+    100% {
+        opacity: 0;
     }
 }
