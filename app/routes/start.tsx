@@ -29,7 +29,7 @@ const LitArtGrid: React.FC = () => {
     }
 
     return (
-        <div className='relative h-screen w-screen overflow-hidden bg-[#0a192f] font-sans text-gray-200 animate-in fade-in duration-1000'>
+        <div className='relative h-screen w-screen overflow-hidden font-sans bg-metallic-dark text-gray-200 animate-in fade-in duration-1000'>
             {/* Grid Container */}
             <div className='grid h-full w-full grid-cols-4 grid-rows-3 gap-4 p-8'>
                 {/* --- PRVI RED --- */}

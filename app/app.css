@@ -205,7 +205,7 @@ html {
     interpolate-size: allow-keywords;
 }
 
-body {
+bodyy {
     --s: 150px; /* control the size*/
     --c1: #17151b;
     --c2: #001219;
