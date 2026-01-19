@@ -1,18 +1,40 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router";
+import type { Route } from "./+types/start";
 import { ArrowRight, Eye, Search, MoveUpRight, Loader2 } from "lucide-react";
 import boccioni from "../assets/boccioni-removebg-preview.png";
 import kehinde from "../assets/kehinde.png";
 import kehindeFull from "../assets/kehinde-full.webp";
+import patterns from "./patterns.css?url";
+import monet from "../assets/quai-du-louvre-1867-monet.jpg";
+
+const kandinsky =
+    "https://uploads0.wikiart.org/images/wassily-kandinsky/improvisation-3-1909.jpg!Large.jpg";
+
+export const links: Route.LinksFunction = () => [
+    { rel: "stylesheet", href: patterns },
+    { rel: "preload", as: "image", href: kandinsky },
+    { rel: "preload", as: "image", href: monet },
+];
 
 const LitArtGrid: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
-    // Simulacija učitavanja resursa
     useEffect(() => {
-        const timer = setTimeout(() => {
+        const imagesToLoad = [boccioni, kehinde, kehindeFull, kandinsky, monet];
+
+        const loadImage = (src: string) => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.src = src;
+                img.onload = resolve;
+                img.onerror = resolve; // Proceed even if image fails to load
+            });
+        };
+
+        Promise.all(imagesToLoad.map(loadImage)).then(() => {
             setLoading(false);
-        }, 2500); // 2.5 sekunde loadera
-        return () => clearTimeout(timer);
+        });
     }, []);
 
     if (loading) {
@@ -20,23 +42,20 @@ const LitArtGrid: React.FC = () => {
             <div className='flex h-screen w-screen items-center justify-center bg-[#0a192f] text-gray-200'>
                 <div className='flex flex-col items-center gap-4'>
                     <Loader2 className='h-12 w-12 animate-spin text-indigo-500' />
-                    <span className='animate-pulse text-xl font-light tracking-widest'>
-                        Učitavanje...
-                    </span>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className='relative h-screen w-screen overflow-hidden font-sans bg-metallic-dark text-gray-200 animate-in fade-in duration-1000'>
+        <div className='relative h-screen w-screen overflow-y-auto lg:overflow-hidden font-sans lit-art-pattern text-gray-200 animate-in fade-in duration-1000'>
             {/* Grid Container */}
-            <div className='grid h-full w-full grid-cols-4 grid-rows-3 gap-4 p-8'>
+            <div className='grid h-auto min-h-screen lg:h-screen w-full grid-cols-1 lg:grid-cols-4 lg:grid-rows-3 gap-4 p-4 lg:p-8'>
                 {/* --- PRVI RED --- */}
 
                 {/* 1.1 - 1.3: Naslov "Lit Art" */}
-                <div className='col-span-3 row-start-1 flex flex-col justify-end p-4'>
-                    <h1 className='font-display text-[150px] font-bold tracking-wide text-white text-center opacity-90 drop-shadow-lg'>
+                <div className='col-span-1 lg:col-span-3 lg:row-start-1 flex flex-col justify-end p-4 neon-container min-h-64 lg:min-h-0'>
+                    <h1 className='font-display text-9xl font-bold tracking-wide text-white text-center opacity-90 drop-shadow-lg neon-text'>
                         Lit Art
                     </h1>
                     <p className='max-w-md mx-auto text-md text-center font-light font-sans text-gray-400'>
@@ -46,42 +65,48 @@ const LitArtGrid: React.FC = () => {
                 </div>
 
                 {/* 1.4: Prazno polje (možemo dodati suptilni dekorativni element ili ostaviti prazno kako je traženo) */}
-                <div className='col-start-4 row-start-1 hidden lg:block'></div>
+                <div className='lg:col-start-4 lg:row-start-1 hidden lg:block'></div>
 
                 {/* --- DRUGI RED --- */}
 
                 {/* 2.1: Symbol - Prelazi okvir */}
-                <div className='group relative col-start-1 row-start-2 flex items-end justify-center overflow-visible'>
-                    <div className='relative z-20 transition-all duration-700 ease-out group-hover:-translate-y-16 group-hover:scale-110'>
+                <Link
+                    to='/symbols'
+                    className='group relative col-span-1 lg:col-start-1 lg:row-start-2 flex items-end justify-center overflow-visible h-64 lg:h-auto'>
+                    <div className='relative z-0 translate-y-50 group-hover:-translate-y-10 transition-all duration-700 ease-out'>
                         <img
                             src={boccioni}
                             alt='symbol'
-                            className='h-40 w-40 object-cover'
+                            className='h-45 w-45 object-cover'
                         />
-                        <div className='h-40 w-40 overflow-hidden rounded-full border-4 border-[#0a192f] shadow-2xl'></div>
-                    </div>
+                        <div className='h-50 w-50 overflow-hidden rounded-full border-4 border-[#0a192f] bg-blue-950 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+                            {/* Skriveni tekst koji se "izvlači" */}
+                            <div className='absolute bottom-10 z-10 flex flex-col items-center'>
+                                <span className='text-lg font-bold text-white '>
+                                    Simboli
+                                </span>
+                                <span className='text-xs uppercase tracking-[0.2em] text-center text-indigo-100'>
+                                    skrivena značenja
+                                </span>
 
-                    {/* Skriveni tekst koji se "izvlači" */}
-                    <div className='absolute bottom-10 z-10 flex flex-col items-center opacity-0 transition-all duration-700 delay-100 group-hover:translate-y-0 group-hover:opacity-100'>
-                        <span className='text-xs uppercase tracking-[0.2em] text-indigo-400'>
-                            Arhetip
-                        </span>
-                        <span className='text-lg font-bold text-white'>
-                            Skriveno značenje
-                        </span>
-                        <Eye className='mt-2 h-4 w-4 text-gray-400' />
+                                <Eye className='m-2 h-6 w-6 text-gray-100' />
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </Link>
 
                 {/* 2.2: Flip Box Link - Moderni grad */}
-                <div className='group col-start-2 row-start-2 perspective-1000 cursor-pointer'>
+                <Link
+                    to='/city'
+                    className='group col-span-1 lg:col-start-2 lg:row-start-2 perspective-1000 cursor-pointer block h-64 lg:h-auto'>
                     <div className='relative h-full w-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180'>
                         {/* Front Side (Image) */}
                         <div className='absolute inset-0 backface-hidden rounded-xl overflow-hidden border border-white/10'>
                             <img
-                                src='https://images.unsplash.com/photo-1480796927426-f609979314bd?q=80&w=1000&auto=format&fit=crop'
+                                src={monet}
                                 alt='City'
                                 className='h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100'
+                                fetchPriority='high'
                             />
                             <div className='absolute bottom-4 left-4 bg-black/50 px-2 py-1 text-xs backdrop-blur-md'>
                                 Arhitektura
@@ -101,18 +126,18 @@ const LitArtGrid: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
 
                 {/* 2.3 - 3.4 (Merged): Image Kehinde - Velika slika desno */}
-                <a
-                    href='#project-kehinde'
-                    className='group relative col-span-2 col-start-3 row-span-2 row-start-2 overflow-visible '>
+                <Link
+                    to='/portraits'
+                    className='group relative col-span-1 lg:col-span-2 lg:col-start-3 lg:row-span-2 lg:row-start-2 overflow-visible h-96 lg:h-auto'>
                     {/* Pozadinska slika (Uzorak) - mijenja filter na hover */}
                     <div className='absolute inset-0 transition-all duration-700 ease-in-out hue-rotate-50 group-hover:hue-rotate-0 contrast-98 group-hover:contrast-100'>
                         <img
                             src={kehindeFull}
                             alt='Background Pattern'
-                            className='h-full w-full object-cover object-center rounded-4xl overflow-hidden group-hover:overflow-visible transition-discrete transition-all duration-500 ease-in-out'
+                            className='h-full w-full object-cover object-center rounded-4xl overflow-hidden  transition-discrete transition-all duration-500 ease-in-out'
                         />
                     </div>
                     {/* Overlay Tekst */}
@@ -139,19 +164,22 @@ const LitArtGrid: React.FC = () => {
                             className='h-[174%] w-auto object-cover translate-y-44 drop-shadow-2xl filter brightness-90 contrast-110 opacity-0 group-hover:brightness-100 group-hover:opacity-100 transition-all duration-500 ease-in-out'
                         />
                     </div>
-                </a>
+                </Link>
 
                 {/* --- TREĆI RED --- */}
 
                 {/* 3.1: Flip Box Link - Boja */}
-                <div className='group col-start-1 row-start-3 perspective-1000 cursor-pointer'>
+                <Link
+                    to='/synesthesia'
+                    className='group col-span-1 lg:col-start-1 lg:row-start-3 perspective-1000 cursor-pointer block h-64 lg:h-auto'>
                     <div className='relative h-full w-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180'>
                         {/* Front Side */}
                         <div className='absolute inset-0 backface-hidden rounded-xl overflow-hidden border border-white/10'>
                             <img
-                                src='https://images.unsplash.com/photo-1502691876148-a84978e59af8?q=80&w=1000&auto=format&fit=crop'
+                                src={kandinsky}
                                 alt='Colors'
                                 className='h-full w-full object-cover opacity-80'
+                                fetchPriority='high'
                             />
                             <div className='absolute bottom-4 left-4 bg-black/50 px-2 py-1 text-xs backdrop-blur-md'>
                                 Teorija Boja
@@ -171,10 +199,10 @@ const LitArtGrid: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
 
                 {/* 3.2: Prazno polje */}
-                <div className='col-start-2 row-start-3 hidden lg:block'></div>
+                <div className='lg:col-start-2 lg:row-start-3 hidden lg:block'></div>
 
                 {/* 3.3 i 3.4 su već pokriveni 'row-span-2' elementom iznad */}
             </div>
