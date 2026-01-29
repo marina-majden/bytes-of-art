@@ -1,7 +1,8 @@
-import React from "react";
+// app/routes/city.tsx
+import React, { useState } from "react";
 import { Link } from "react-router";
 import { locations } from "../data/locationData";
-
+import ImpressionismIntro from "../pages/city/ImpressionismIntro";
 interface PointProps {
     to: string;
     label: string;
@@ -15,6 +16,7 @@ const InteractivePoint: React.FC<PointProps> = ({
     position,
     color,
 }) => {
+    // ... (zadrži postojeći kod)
     return (
         <Link
             to={to}
@@ -34,8 +36,26 @@ const InteractivePoint: React.FC<PointProps> = ({
     );
 };
 
-// Glavna komponenta mape
-const CityMap: React.FC = () => {
+// ...
+
+// Glavna komponenta stranice
+const CityPage: React.FC = () => {
+    // Stanje koje prati je li uvod završen
+    const [introCompleted, setIntroCompleted] = useState(false);
+
+    // Ako uvod nije gotov, prikaži Intro komponentu
+    if (!introCompleted) {
+        return (
+            <ImpressionismIntro onComplete={() => setIntroCompleted(true)} />
+        );
+    }
+
+    // Kada je uvod gotov, prikaži originalnu mapu
+    return <CityMapContent />;
+};
+
+// Izdvojio sam originalni sadržaj mape u zasebnu komponentu radi čistoće koda
+const CityMapContent: React.FC = () => {
     const kavanaLabel = locations["kavana"]?.name || "Kavana";
     const ulicaLabel = locations["ulica"]?.name || "Ulica";
     const domLabel = locations["dom"]?.name || "Dom";
@@ -43,7 +63,9 @@ const CityMap: React.FC = () => {
     const kolodvorLabel = locations["kolodvor"]?.name || "Kolodvor";
 
     return (
-        <div className='flex flex-col items-center justify-center p-4 md:p-8'>
+        <div className='flex flex-col items-center justify-center p-4 md:p-8 min-h-screen bg-neutral-900'>
+            {" "}
+            {/* Dodao sam min-h-screen i bg za bolji prijelaz */}
             <header className='text-center mb-12'>
                 <h2 className='text-5xl md:text-8xl font-display font-bold text-neutral-100 text-shadow-xl text-shadow-black-xl mb-3'>
                     <span className='font-display text-teal-400 '>dva </span>
@@ -54,9 +76,8 @@ const CityMap: React.FC = () => {
                     kako biste pronašli dojmove književnika, boema i umjetnika!
                 </p>
             </header>
-
             {/* AŽURIRANI KONTEJNER ZA MAPU */}
-            <div className='relative w-[60vw] h-[70vh] max-w-6xl rounded-lg shadow-2xl border-2 border-gray-700 overflow-hidden mb-6 bg-neutral-300'>
+            <div className='relative w-[90vw] md:w-[60vw] h-[60vh] md:h-[70vh] max-w-6xl rounded-lg shadow-2xl border-2 border-gray-700 overflow-hidden mb-6 bg-neutral-300'>
                 {/* --- AŽURIRANA SVG MAPA POZADINE (z-index 0) --- */}
                 <svg
                     className='absolute top-0 left-0 w-full h-full z-0 opacity-100'
@@ -190,13 +211,18 @@ const CityMap: React.FC = () => {
                     color='bg-yellow-600'
                 />
             </div>
-            {/* --- Go Back (back to previous page) and Next page (to QuizGame) buttons --- */}
             <div className='w-full flex justify-evenly mt-4'>
                 <Link
                     to='/city/theory'
                     className='bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded'>
                     Go Back
                 </Link>
+                {/* Gumb za ponovno pokretanje uvoda ako korisnik želi */}
+                <button
+                    onClick={() => window.location.reload()} // Najjednostavniji način za reset
+                    className='text-slate-400 hover:text-white underline text-sm'>
+                    Ponovi uvod
+                </button>
                 <Link
                     to='/city/quiz'
                     className='bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded'>
@@ -207,4 +233,4 @@ const CityMap: React.FC = () => {
     );
 };
 
-export default CityMap;
+export default CityPage;

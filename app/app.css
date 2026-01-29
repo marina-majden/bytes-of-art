@@ -205,25 +205,6 @@ html {
     interpolate-size: allow-keywords;
 }
 
-body {
-    --s: 150px; /* control the size*/
-    --c1: #17151b;
-    --c2: #001219;
-
-    --_g: #10689cdf 52%, var(--c1) 54% 57%, #0000 59%;
-    background:
-        radial-gradient(farthest-side at -33.33% 50%, var(--_g)) 0
-            calc(var(--s) / 2),
-        radial-gradient(farthest-side at 50% 133.33%, var(--_g))
-            calc(var(--s) / 2) 0,
-        radial-gradient(farthest-side at 133.33% 50%, var(--_g)),
-        radial-gradient(farthest-side at 50% -33.33%, var(--_g)),
-        var(--c2);
-    background-size:
-        calc(var(--s) / 4.667) var(--s),
-        var(--s) calc(var(--s) / 4.667);
-}
-
 a.active {
     @apply underline underline-offset-2;
 }
@@ -934,7 +915,7 @@ img.avatar:hover {
     text-shadow:
         0 0 5px #ff005e,
         0 0 10px #ff005e;
-    
+
     animation: glowText 1.5s infinite alternate;
 }
 
@@ -944,13 +925,11 @@ img.avatar:hover {
             0 0 5px #ff005e,
             0 0 10px #ff005e,
             0 0 20px #ff005e;
-        
     }
     100% {
         text-shadow:
             0 0 10px #00d4ff,
             0 0 20px #00d4ff,
             0 0 40px #00d4ff;
-            
     }
 }
