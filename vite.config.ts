@@ -4,5 +4,8 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+    // Set the base for deploying to a subdirectory on GitHub Pages.
+    // This should match your repository name.
+    base: "/bytes-of-art/",
+    plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
 });

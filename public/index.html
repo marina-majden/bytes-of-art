@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bytes of Art</title>
+        <script type="text/javascript">
+            // Credit: https://github.com/rafgraph/spa-github-pages
+            // This script checks for a redirect query parameter and uses the History API
+            // to restore the correct URL before the client-side router loads.
+            (function (l) {
+                if (l.search) {
+                    var q = {};
+                    l.search.slice(1).split('&').forEach(function (v) {
+                        var a = v.split('=');
+                        q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+                    });
+                    if (q.p) {
+                        window.history.replaceState(null, null,
+                            l.pathname.slice(0, -1) + (q.p || '') +
+                            (q.q ? ('?' + q.q) : '') +
+                            l.hash
+                        );
+                    }
+                }
+            }(window.location))
+        </script>
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
+
+</html>

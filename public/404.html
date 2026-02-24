@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Redirecting...</title>
+        <script type="text/javascript">
+            // Credit: https://github.com/rafgraph/spa-github-pages
+            // This script is used to redirect 404 errors on GitHub Pages to the
+            // root of the application, so the client-side router can handle the path.
+            (function (l) {
+                // For a repository at user.github.io/repo-name, the segment count is 1.
+                const segmentCount = 1;
+                const repoPath = l.pathname.split('/').slice(0, 1 + segmentCount).join('/');
+                const spaPath = l.pathname.slice(1).split('/').slice(segmentCount).join('/');
+
+                l.replace(
+                    l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+                    repoPath + '/?p=/' +
+                    spaPath.replace(/&/g, '~and~') +
+                    (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                    l.hash
+                );
+            }(window.location))
+        </script>
+    </head>
+
+    <body></body>
+
+</html>
