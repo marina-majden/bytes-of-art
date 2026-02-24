@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Dosis:wght@200..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Phudu:wght@300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Gowun+Dodum&family=League+Spartan:wght@100..900&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Saira+Stencil+One&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Ysabeau+SC:wght@1..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous:wght@400;600;700&family=IBM+Plex+Sans:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface:wght@400;600;700&family=Poppins:wght@400&display=swap");
 
 @import "tailwindcss";
 
@@ -164,6 +166,10 @@
     --font-saira: "Saira Stencil One", sans-serif;
     --font-sansation: "Sansation", sans-serif;
     --font-ysabeau: "Ysabeau SC", sans-serif;
+    --font-righteous: "Righteous", sans-serif;
+    --font-ibm: "IBM Plex Sans", sans-serif;
+    --font-abril: "abril Fatface", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
 
     --color-primary: #699699;
     --color-secondary: #666996;

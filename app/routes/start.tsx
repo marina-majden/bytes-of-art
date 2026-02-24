@@ -109,17 +109,17 @@ const LitArtGrid: React.FC = () => {
                                 fetchPriority='high'
                             />
                             <div className='absolute bottom-4 left-4 bg-black/50 px-2 py-1 text-xs backdrop-blur-md'>
-                                Arhitektura
+                                Moderni i avangardni grad
                             </div>
                         </div>
 
                         {/* Back Side (Solid Color + Text) */}
                         <div className='absolute inset-0 flex flex-col items-center justify-center bg-indigo-800 p-6 text-center rotate-y-180 backface-hidden rounded-xl border border-indigo-600 shadow-[0_0_30px_rgba(79,70,229,0.3)]'>
                             <h3 className='mb-2 text-xl font-bold text-white'>
-                                Moderni i avangardni grad
+                                Arhitektura i urbanizam
                             </h3>
                             <p className='text-xs text-gray-300'>
-                                Urbani pejzaži kroz prizmu futurizma.
+                                Uloga i utjecaj urbanizacije u umjetnosti.
                             </p>
                             <div className='mt-4 rounded-full bg-white/10 p-2'>
                                 <ArrowRight className='h-5 w-5 text-white' />
@@ -148,7 +148,7 @@ const LitArtGrid: React.FC = () => {
                                     Portreti
                                 </h2>
                                 <p className='text-sm text-gray-300'>
-                                    Rekontekstualizacija povijesti umjetnosti
+                                    Politička propaganda kroz umjetnost
                                 </p>
                             </div>
                             <MoveUpRight className='h-8 w-8 text-white opacity-0 transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100' />
@@ -170,7 +170,7 @@ const LitArtGrid: React.FC = () => {
 
                 {/* 3.1: Flip Box Link - Boja */}
                 <Link
-                    to='/synesthesia'
+                    to='/colors'
                     className='group col-span-1 lg:col-start-1 lg:row-start-3 perspective-1000 cursor-pointer block h-64 lg:h-auto'>
                     <div className='relative h-full w-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180'>
                         {/* Front Side */}
@@ -182,7 +182,7 @@ const LitArtGrid: React.FC = () => {
                                 fetchPriority='high'
                             />
                             <div className='absolute bottom-4 left-4 bg-black/50 px-2 py-1 text-xs backdrop-blur-md'>
-                                Teorija Boja
+                                Boje: više od estetike
                             </div>
                         </div>
 

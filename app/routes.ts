@@ -20,7 +20,7 @@ export default [
     route("time", "routes/time.tsx"),
     route("iceberg", "pages/story/IcebergTheory.tsx"),
     route("artwork", "routes/artwork-detail.tsx"),
-    route("synesthesia", "routes/synesthesia.tsx"),
+    route("colors", "routes/colors.tsx"),
     route("walls", "routes/walls.tsx"),
     route("walls/street", "pages/walls/StreetArtGallery.tsx"),
     route("walls/social", "pages/walls/InstaPoetry.tsx"),

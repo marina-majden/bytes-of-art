@@ -1,10 +1,10 @@
 import { useRef } from "react";
-import HeroSynesthesia from "~/pages/synesthesia/HeroSynesthesia";
-import ColorTheoryLab from "~/pages/synesthesia/ColorTheoryLab";
-import KandinskyTranslator from "~/pages/synesthesia/KandinskyTranslator";
-import BookCoverCreator from "~/pages/synesthesia/BookCoverCreator";
+import HeroSynesthesia from "~/pages/colors/HeroSynesthesia";
+import ColorTheoryLab from "~/pages/colors/ColorTheoryLab";
+import KandinskyTranslator from "~/pages/colors/KandinskyTranslator";
+import BookCoverCreator from "~/pages/colors/BookCoverCreator";
 
-export default function SynesthesiaLesson() {
+export default function ColorsLesson() {
     const theoryRef = useRef<HTMLDivElement>(null);
 
     const scrollToStart = () => {
