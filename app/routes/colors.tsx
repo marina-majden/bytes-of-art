@@ -3,6 +3,7 @@ import HeroSynesthesia from "~/pages/colors/HeroSynesthesia";
 import ColorTheoryLab from "~/pages/colors/ColorTheoryLab";
 import KandinskyTranslator from "~/pages/colors/KandinskyTranslator";
 import BookCoverCreator from "~/pages/colors/BookCoverCreator";
+import ColorCatalogue from "~/pages/colors/ColorCatalogue";
 
 export default function ColorsLesson() {
     const theoryRef = useRef<HTMLDivElement>(null);
@@ -26,6 +27,9 @@ export default function ColorsLesson() {
 
             {/* 4. MODUL C: DIZAJN */}
             <BookCoverCreator />
+
+            {/* 5. MODUL D: KATALOG */}
+            <ColorCatalogue />
         </main>
     );
 }
